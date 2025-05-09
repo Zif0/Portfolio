@@ -11,29 +11,46 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body class="preload">
   <header>
     <nav class="navbar">
-      <div class="logo">Portfolio</div>
+      <div class="logo">Zi's Portfolio</div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li>Resume</li>
+        <li><a href="#resume">Resume</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section id="welcomeMessage">
-      <h1>I'm Zi - welcome to my portfolio</h1>
-    </section>
+  <section id="welcomeMessage">
+      <h1 id="welcome1">I'm Zi</h1>
+      <h1 id="welcome2">Welcome To My Portfolio</h1>
+  </section>
 
+  <main class="container">
+    
     <section id="about">
       <h2>About Me</h2><br>
       <p>I'm <b>Zi</b>, a <b>systems engineer</b> with over 3 years of work experience in quality assurance. I earned my <b>B.S. in Software Engineering</b> from Western Governors University in April of 2025.</p><br>
       <p>My passion lies in building software and solutions that helps others and make a meaningful impact. Technology has always fascinated me and this is my way of diving deeper while contributing back to the industry I grew up admiring.</p><br>
       <p>Outside of tech, I also enjoy picking up skills such as wood/metal working, anodizing, and soldering. I'm also a passionate automotive enthusiast. I have owned many different cars and currently have a fixation with Porsche.</p>
+    </section>
+
+    <section id="gallery">
+      <div class="slider">
+      <button class="slide-btn prev">&#10094;</button>
+
+      <div class="slides">
+        <img src="cayman.png" alt="Slide 1" class="slide active">
+        <img src="porsches.png" alt="Slide 2" class="slide">
+        <img src="supra.png" alt="Slide 3" class="slide">
+        <img src="brz.jpeg" alt="Slide 4" class="slide">
+      </div>
+
+      <button class="slide-btn next">&#10095;</button>
+      </div>
     </section>
 
     <section id="projects">
@@ -52,18 +69,29 @@
       </ul>
     </section>
 
+  <section id="resume">
+    <h2>Resume</h2><br>
+    <div class="resume-container">
+      <iframe src="Zi Resume 2025.pdf" 
+      title="Resume"
+      width="100%" 
+      height="800px"
+      style="border: none;">
+      
+      </iframe>
+  </section>
+
     <section id="contact">
-      <h2>Contact Me</h2>
+      <h2>Contact Me</h2><br>
       <form id="contactForm" action="https://formsubmit.co/zif2022@gmail.com" method="POST">
-        <label for="name">Name</label><br>
-        <input type="text" id="name" name="name" required /><br><br>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
 
-        <label for="email">Email</label><br>
-        <input type="email" id="email" name="email" required /><br><br>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
 
-        <label for="message">Message</label><br>
-        <textarea id="message" name="message" rows="6" required></textarea><br><br>
-
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
         <button type="submit">Submit</button>
       </form>
     </section>
