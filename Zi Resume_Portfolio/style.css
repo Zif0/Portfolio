@@ -9,7 +9,7 @@
   margin: 0 auto;
   padding: 0 2rem;
 }
-  
+
 html, body {
   font-family: 'Inter', sans-serif;
   background-color: #f9f9f9;
@@ -50,6 +50,28 @@ header {
   list-style: none
 }
 
+#navItem:hover {
+  color: #0077ff;
+}
+
+/* welcome animation */
+body.lock-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+body.preload {
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+}
+
+body.preload nav{
+  pointer-events: none;
+  opacity: 0;
+}
+
 body.preload #welcomeMessage,
 body.preload main {
   opacity: 0;
@@ -59,17 +81,16 @@ body.preload main {
   position: relative;
   min-height: 150px;
   opacity: 0;
-  transition: opacity 1.5s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
   padding: 4rem 0;
   text-align: center;
   overflow: hidden;
 }
 
-/* Messages */
 #welcome1,
 #welcome2 {
   opacity: 0;
-  transition: opacity 1.5s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
   position: absolute;
   width: 100%;
   text-align: center;
@@ -87,18 +108,42 @@ body.preload main {
   opacity: 0 !important;
 }
 
-/* Main */
+nav {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+nav.reveal {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* main */
 main {
   opacity: 0;
-  transition: opacity 2s ease-out;
+  transition: opacity 1.5s ease-out;
   max-width: 1000px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-/* Section */
+/* sections */
 section {
   margin-bottom: 4rem;
+}
+
+.section-hidden {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out, filter 0.8s ease-out;
+}
+
+.section-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
 }
 
 footer {
@@ -106,9 +151,34 @@ footer {
   padding: 2rem;
   background-color: #f1f1f1;
   font-size: 0.9rem;
+  position: relative;
 }
 
-/* Contact Form */
+.socialLinks {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+#linkedin {
+  height: 50px;
+  width: 50px;
+}
+
+.socials {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.socials:hover {
+  transform: scale(1.1);
+}
+
+/* contact form */
 #contact {
   max-width: 1000px;
   margin: 0 auto;
@@ -150,7 +220,7 @@ form#contactForm textarea {
   min-height: 150px;
 }
 
-/* Submit Button */
+/* submit */
 form#contactForm button[type="submit"] {
   margin-top: 1rem;
   padding: 0.5rem;
@@ -168,6 +238,7 @@ form#contactForm button[type="submit"]:hover {
   background-color: #005fcc;
 }
 
+/* gallery */
 #gallery {
   max-width: 1000px;
   text-align: center;
@@ -228,12 +299,9 @@ form#contactForm button[type="submit"]:hover {
   background-color: rgba(0,0,0,0.8);
 }
 
-/* Resume*/
+/* resume*/
 #resume {
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
 .resume-container {

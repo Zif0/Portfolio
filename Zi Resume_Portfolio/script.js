@@ -1,3 +1,4 @@
+//nav
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Portfolio site loaded");
 
@@ -12,11 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+//welcome animation
 window.addEventListener("load", () => {
   const welcomeContainer = document.getElementById("welcomeMessage");
   const msg1 = document.getElementById("welcome1");
   const msg2 = document.getElementById("welcome2");
   const main = document.querySelector("main");
+  const nav = document.querySelector("nav");
+
+  window.scrollTo(0, 0);
+  document.body.classList.add("lockScroll");
+  nav.classList.add("locked");
 
   setTimeout(() => {
     welcomeContainer.classList.add("reveal");
@@ -37,12 +44,12 @@ window.addEventListener("load", () => {
 
   setTimeout(() => {
     main.classList.add("reveal");
+    nav.classList.add("reveal");
+    document.body.classList.remove("preload");
   }, 4800);
 });
 
-
-
-
+//photos
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
   const nextBtn = document.querySelector(".slide-btn.next");
@@ -66,5 +73,31 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(currentIndex);
   });
 
-  showSlide(currentIndex); // Initialize
+  showSlide(currentIndex);
+});
+
+//scrolling
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("section-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+    }
+  );
+
+  sections.forEach(section => {
+    if (!section.classList.contains("intro")) {
+      section.classList.add("section-hidden");
+      observer.observe(section);
+    }
+  });
 });
