@@ -17,6 +17,9 @@
     text-decoration: none;
   }
   
+  ul {
+    list-style: none;
+  }
 
   header {
     background-color: #ffffff;

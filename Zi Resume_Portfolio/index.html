@@ -14,7 +14,7 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">Zi Feng</div>
+      <div class="logo">Portfolio</div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -26,35 +26,46 @@
 
   <main>
     <section id="welcomeMessage">
-        <h1>Welcome</h1>
+      <h1>I'm Zi - welcome to my portfolio</h1>
     </section>
 
     <section id="about">
-        <h2>About Me</h2><br>
-        <p>I'm <b>Zi</b>, a <b>systems engineer</b> with over 3 years of work experience. I spent the majority of my time in quality, from quality control to quality systems. I earned my <b>B.S. in Software Engineering</b> from Western Governors University in April of 2025.</p><br>
-        <p>I have a passion for creating software and solutions that has helps others and has strong impact. I have always had an interest in technology and advanacements and this is my way of diving deeper while contributing back to the industry I grew up with.</p><br>
-        <p>I also enjoy picking up random skills such as wood/metal working, anodizing, and soldering and have a great passion for cars and the automotive industry. I have owned many different cars and currently have a fixation with Porsche.</p>
+      <h2>About Me</h2><br>
+      <p>I'm <b>Zi</b>, a <b>systems engineer</b> with over 3 years of work experience in quality assurance. I earned my <b>B.S. in Software Engineering</b> from Western Governors University in April of 2025.</p><br>
+      <p>My passion lies in building software and solutions that helps others and make a meaningful impact. Technology has always fascinated me and this is my way of diving deeper while contributing back to the industry I grew up admiring.</p><br>
+      <p>Outside of tech, I also enjoy picking up skills such as wood/metal working, anodizing, and soldering. I'm also a passionate automotive enthusiast. I have owned many different cars and currently have a fixation with Porsche.</p>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2><br>
-        <h3>Vac Track</h3>
-        <h4>Android Studio - Java - Room</h4>
-        <p>Vac Track is a Android app that helps users to manage their vacations and excursions in a more organized manner. It uses a clean, straightforward UI, industry standard security features, and an offline/local database with Room to reduce dependencies.</p><br>
-        <ul>
-            <b>Features Include:</b>
-            <li>Vacation Management</li>
-            <li>Excursion Management</li>
-            <li>Notifications/Alerts</li>
-            <li>Share Feature</li>
-            <li>Search Function</li>
-            <li>Report Generation</li>
-        </ul>
-            
+      <h2>Projects</h2><br>
+      <h3>Vac Track</h3>
+      <h4>Android Studio - Java - Room</h4>
+      <p>Vac Track is an Android app that helps users to manage their vacations and excursions in a streamlined, offline environment. It uses a clean UI, industry standard security features such as input validation, and Room to reduce dependencies.</p><br>
+      <p>Vac Track is currently available on <b><a href="https://zif0.itch.io/vac-track">Itch.io for free.</a></b></p><br>
+      <ul>
+        <b>Features Include:</b>
+        <li>Vacation & Excursion Management</li>
+        <li>Notifications/Alerts</li>
+        <li>Data Sharing Options</li>
+        <li>Search/Filter Functionality</li>
+        <li>Report Generation</li>
+      </ul>
     </section>
 
     <section id="contact">
-      <!-- Contact form or links -->
+      <h2>Contact Me</h2>
+      <form id="contactForm" action="https://formsubmit.co/zif2022@gmail.com" method="POST">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name" required /><br><br>
+
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email" required /><br><br>
+
+        <label for="message">Message</label><br>
+        <textarea id="message" name="message" rows="6" required></textarea><br><br>
+
+        <button type="submit">Submit</button>
+      </form>
     </section>
   </main>
 
