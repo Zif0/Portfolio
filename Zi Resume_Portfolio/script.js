@@ -31,22 +31,22 @@ window.addEventListener("load", () => {
 
   setTimeout(() => {
     msg1.classList.add("reveal");
-  }, 600);
+  }, 500);
 
   setTimeout(() => {
     msg1.classList.remove("reveal");
     msg1.classList.add("hide"); 
-  }, 2200);
+  }, 2000);
 
   setTimeout(() => {
     msg2.classList.add("reveal");
-  }, 3500);
+  }, 2800);
 
   setTimeout(() => {
     main.classList.add("reveal");
     nav.classList.add("reveal");
     document.body.classList.remove("preload");
-  }, 4800);
+  }, 3500);
 });
 
 //photos
