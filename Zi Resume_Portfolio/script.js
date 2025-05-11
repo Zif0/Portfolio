@@ -31,49 +31,52 @@ window.addEventListener("load", () => {
 
   setTimeout(() => {
     msg1.classList.add("reveal");
-  }, 600);
+  }, 400);
 
   setTimeout(() => {
     msg1.classList.remove("reveal");
     msg1.classList.add("hide"); 
-  }, 2200);
+  }, 1600);
 
   setTimeout(() => {
     msg2.classList.add("reveal");
-  }, 3500);
+  }, 2500);
 
   setTimeout(() => {
     main.classList.add("reveal");
     nav.classList.add("reveal");
     document.body.classList.remove("preload");
-  }, 4800);
+    msg2.classList.add("hide"); 
+    welcomeContainer.style.display = "none";
+  }, 4000);
 });
 
 //photos
 document.addEventListener("DOMContentLoaded", () => {
-  const slides = document.querySelectorAll(".slide");
-  const nextBtn = document.querySelector(".slide-btn.next");
-  const prevBtn = document.querySelector(".slide-btn.prev");
+  document.querySelectorAll(".slider").forEach((slider) => {
+    const slidesContainer = slider.querySelector(".slides");
+    const slides = slider.querySelectorAll(".slide");
+    const nextBtn = slider.querySelector(".slideNext");
+    const prevBtn = slider.querySelector(".slidePrev");
 
-  let currentIndex = 0;
+    let currentIndex = 0;
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
+    function updateSlidePosition() {
+      slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlidePosition();
     });
-  }
 
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlidePosition();
+    });
+
+    updateSlidePosition();
   });
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
-  });
-
-  showSlide(currentIndex);
 });
 
 //scrolling

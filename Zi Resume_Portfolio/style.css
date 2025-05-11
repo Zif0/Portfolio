@@ -51,7 +51,7 @@ header {
 }
 
 #navItem:hover {
-  color: #0077ff;
+  color: #005fcc;
 }
 
 /* welcome animation */
@@ -81,7 +81,7 @@ body.preload main {
   position: relative;
   min-height: 150px;
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   padding: 4rem 0;
   text-align: center;
   overflow: hidden;
@@ -90,7 +90,7 @@ body.preload main {
 #welcome1,
 #welcome2 {
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   position: absolute;
   width: 100%;
   text-align: center;
@@ -106,11 +106,12 @@ body.preload main {
 
 .hide {
   opacity: 0 !important;
+  padding: 0;
 }
 
 nav {
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   pointer-events: none;
 }
 
@@ -122,7 +123,7 @@ nav.reveal {
 /* main */
 main {
   opacity: 0;
-  transition: opacity 1.5s ease-out;
+  transition: opacity 1s ease-out;
   max-width: 1000px;
   margin: 2rem auto;
   padding: 0 2rem;
@@ -137,7 +138,7 @@ section {
   opacity: 0;
   filter: blur(8px);
   transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out, filter 0.8s ease-out;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, filter 0.5s ease-out;
 }
 
 .section-visible {
@@ -176,6 +177,18 @@ footer {
 
 .socials:hover {
   transform: scale(1.1);
+}
+
+.project-entry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+.project-text {
+  flex: 1 1 400px;
 }
 
 /* contact form */
@@ -238,18 +251,18 @@ form#contactForm button[type="submit"]:hover {
   background-color: #005fcc;
 }
 
-/* gallery */
+/* pictures */
 #gallery {
-  max-width: 1000px;
+  max-width: 100%;
   text-align: center;
-  
 }
 
 .slider {
+  aspect-ratio: 16/9;
   position: relative;
   overflow: hidden;
-  width: 100%;
-  max-width: 700px;
+  max-width: 100%;
+  height: auto;
   margin: 0 auto;
   outline: #000000 solid 1.5px;
   border-radius: 8px;
@@ -258,12 +271,13 @@ form#contactForm button[type="submit"]:hover {
 .slides {
   display: flex;
   transition: transform 0.4s ease-in-out;
-
+  height: 100%;
 }
 
 .slide {
   min-width: 100%;
-  display: none;
+  height: 100%;
+  display: block;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -272,7 +286,8 @@ form#contactForm button[type="submit"]:hover {
   display: block;
 }
 
-.slide-btn {
+.slidePrev,
+.slideNext {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -287,16 +302,47 @@ form#contactForm button[type="submit"]:hover {
   user-select: none;
 }
 
-.slide-btn.prev {
+.slidePrev {
   left: 10px;
 }
 
-.slide-btn.next {
+.slideNext {
   right: 10px;
 }
 
 .slide-btn:hover {
   background-color: rgba(0,0,0,0.8);
+}
+
+
+.project-gallery {
+  max-width: 100%;
+  text-align: center;
+}
+
+.project-gallery .slider {
+  aspect-ratio: 10/12;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  outline: #000000 solid 1.5px;
+  border-radius: 8px;
+}
+
+.project-gallery .slides {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  height: 100%;
+}
+
+.project-gallery .slide {
+  min-width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 /* resume*/
