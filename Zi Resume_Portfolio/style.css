@@ -19,8 +19,15 @@ html, body {
 }
   
 a {
-  color: inherit;
+  color: #0077ff;
   text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+a:hover {
+  color: #005fcc;
+  transform: scale(1.05);
 }
   
 ul {
@@ -47,11 +54,14 @@ header {
 .nav-links {
   display: flex;
   gap: 1.5rem;
-  list-style: none
+  list-style: none;
+  color: #0077ff;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 #navItem:hover {
   color: #005fcc;
+  transform: scale(1.1);
 }
 
 /* welcome animation */
@@ -179,16 +189,18 @@ footer {
   transform: scale(1.1);
 }
 
-.project-entry {
+.project {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  justify-content: space-between;
   align-items: flex-start;
   margin-top: 2rem;
 }
 
-.project-text {
-  flex: 1 1 400px;
+.projectDescription {
+  flex: 1 1 45%;
+  min-width: 35%;
 }
 
 /* contact form */
@@ -316,18 +328,16 @@ form#contactForm button[type="submit"]:hover {
 
 
 .project-gallery {
-  max-width: 100%;
-  text-align: center;
+  flex: 1 1 45%;
+  min-width: 35%;
 }
 
 .project-gallery .slider {
-  aspect-ratio: 10/12;
+  aspect-ratio: 9/16;
   position: relative;
   overflow: hidden;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  outline: #000000 solid 1.5px;
+  width: 100%;
+  border: 1.5px solid #000;
   border-radius: 8px;
 }
 
