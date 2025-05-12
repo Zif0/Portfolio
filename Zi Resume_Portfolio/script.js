@@ -18,6 +18,8 @@ window.addEventListener("load", () => {
   const welcomeContainer = document.getElementById("welcomeMessage");
   const msg1 = document.getElementById("welcome1");
   const msg2 = document.getElementById("welcome2");
+  const msg3 = document.getElementById("welcome3");
+  const msg4 = document.getElementById("welcome4");
   const main = document.querySelector("main");
   const nav = document.querySelector("nav");
 
@@ -47,7 +49,8 @@ window.addEventListener("load", () => {
     nav.classList.add("reveal");
     document.body.classList.remove("preload");
     msg2.classList.add("hide"); 
-    welcomeContainer.style.display = "none";
+    msg3.classList.add("reveal");
+    msg4.classList.add("reveal");
   }, 4000);
 });
 
