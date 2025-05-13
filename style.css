@@ -87,29 +87,25 @@ body.preload main {
   min-height: 250px;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-  padding: 6rem 0;
+  padding: 1rem 0;
   text-align: center;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 #welcome1,
 #welcome2,
-#welcome3 {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  margin-top: 2rem;
-}
-
+#welcome3,
 #welcome4 {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-  position: absolute;
+  position: static;
   width: 100%;
   text-align: center;
-  margin-top: 4rem;
+  margin: 0;
 }
 
 .reveal {
@@ -372,4 +368,35 @@ form#contactForm button[type="submit"]:hover {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* mobile styling */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .project {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projectGallery {
+    margin-top: 1rem;
+  }
 }
