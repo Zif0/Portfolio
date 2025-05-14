@@ -15,8 +15,13 @@
   <header>
     <nav class="navbar">
       <div class="logo">Zi's Portfolio</div>
-      <ul class="navLinks">
+      <button class="hamburger" id="hamburger">&#9776;</button>
+      <div class="mobileOverlay"></div>
+      <ul class="navLinks" id="navMenu">
         <li class="navItem"><a href="#about">About</a></li>
+        <li class="navItem"><a href="#experience">Experience</a></li>
+        <li class="navItem"><a href="#skills">Skills</a></li>
+        <li class="navItem"><a href="#education">Education</a></li>
         <li class="navItem"><a href="#projects">Projects</a></li>
         <li class="navItem"><a href="#resume">Resume</a></li>
         <li class="navItem"><a href="#contact">Contact</a></li>
@@ -42,23 +47,118 @@
 
     <section id="gallery">
       <div class="slider">
-      <button class="slidePrev">&#10094;</button>
-      <button class="slideNext">&#10095;</button>
-      <div class="slides">
-        <img src="Pictures/cayman.png" alt="Slide 1" class="slide">
-        <img src="Pictures/porsches.png" alt="Slide 2" class="slide">
-        <img src="Pictures/supra.png" alt="Slide 3" class="slide">
-        <img src="Pictures/brz.jpeg" alt="Slide 4" class="slide">
-      </div>
+        <button class="slidePrev">&#10094;</button>
+        <button class="slideNext">&#10095;</button>
+        <div class="slides">
+          <img src="Pictures/cayman.png" alt="Slide 1" class="slide">
+          <img src="Pictures/porsches.png" alt="Slide 2" class="slide">
+          <img src="Pictures/supra.png" alt="Slide 3" class="slide">
+          <img src="Pictures/brz.jpeg" alt="Slide 4" class="slide">
+        </div>
       </div>
     </section>
+
+    <section id="experience">
+      <h2>Experience</h2><br>
+      <div class="experienceContainer">
+        <div class="experience">
+          <div class="job">
+            <h3>Quality Systems Engineer - Redwood Materials</h3>
+            <h4>August 2024 - Present</h4>
+            <ul>
+              <li>Administer and develop systems across QMS, Jira, Tableau, Grafana, and Microsoft platforms to support company-wide quality infrastructure.</li>
+              <li>Led overhaul of incident reporting and problem solving system, improving efficiency and saving over $50,000 annually.</li>
+              <li>Developed custom apps and dashboards using Java, Python, SQL, and more to support multiple departments, driving over $100,000 in yearly savings.</li>
+            </ul>
+          </div>
+          <div class="job">
+            <h3>Quality Engineering Technician - Redwood Materials</h3>
+            <h4>January 2024 - August 2024</h4>
+            <ul>
+              <li>Engineer overlooking multiple production processes across multiple shifts.</li>
+              <li>Conducted microscopy and material analysis, preventing over $15,000 in quality related losses.</li>
+              <li>Supported process changes through data analysis, root cause investigations, and ISO/IATF integration.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2><br>
+      <div class="skillContainer">
+        <div class="skill">
+          <img src="Pictures/Java.png" alt="Java" class="skillIcon">
+          <p>Java</p>
+        </div>
+        <div class="skill">
+          <img src="Pictures/python.png" alt="Python" class="skillIcon">
+          <p>Python</p>
+        </div>
+        <div class="skill">
+          <img src="Pictures/html.png" alt="HTML" class="skillIcon">
+          <p>HTML</p>
+        </div>
+        <div class="skill">
+          <img src="Pictures/css.png" alt="CSS" class="skillIcon">
+          <p>CSS</p>
+        </div>
+        <div class="skill">
+          <img src="Pictures/javascript.png" alt="Javascript" class="skillIcon">
+          <p>Javascript</p>
+        </div>
+        <div class="skill">
+          <img src="Pictures/sql.png" alt="SQL" class="skillIcon">
+          <p>SQL</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education and Certifications</h2><br>
+
+      <div class="educationContainer">
+        <div class="educationItem">
+          <h3>B.S. in Software Engineering - Western Governors University</h3>
+          <p class="eduDate">April 2023 - May 2025</p>
+        </div>
+        <div class="educationItem">
+          <h3>General Education/Transfer - Truckee Meadows Community College</h3>
+          <p class="eduDate">August 2019 - August 2021</p>
+        </div>
+      </div>
+
+      <div class="certContainer">
+        <a href="Pictures/degree.png" target="_blank" class="skill">
+          <img src="Pictures/wgu.png" alt="WGU" class="skillIcon" />
+          <p>WGU</p>
+        </a>
+        <a href="https://www.credly.com/badges/f0994fca-d01b-4f7a-840f-6e3a887b3f40/linked_in_profile" target="_blank" class="skill">
+          <img src="Pictures/aws.png" alt="AWS Cloud Practitioner" class="skillIcon" />
+          <p>AWS Cloud Practitioner</p>
+        </a>
+        <a href="https://www.linkedin.com/in/zifeng1/details/certifications/1723925532106/single-media-viewer/?profileId=ACoAADy5grIB7GbJQcbEPzgjveR_oCBff2GhQqY" target="_blank" class="skill">
+          <img src="Pictures/itil.png" alt="ITIL v4 Foundation" class="skillIcon" />
+          <p>ITIL v4 Foundation</p>
+        </a>
+        <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/MY2D457U3TVZ" target="_blank" class="skill">
+          <img src="Pictures/gpm.png" alt="Google Project Management" class="skillIcon" />
+          <p>Google Project Management</p>
+        </a>
+        <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/GZUCL64L8PPH" target="_blank" class="skill">
+          <img src="Pictures/gis.png" alt="Google IT Support" class="skillIcon" />
+          <p>Google IT Support</p>
+        </a>
+      </div>
+    </section>
+
 
     <section id="projects">
       <h2>Projects</h2>
         <div class="project">
           <div class="projectDescription">
             <h3>Vac Track</h3>
-            <h4>Android Studio - Java - Room</h4>
+            <h4>Android Studio - Java - Room</h4><br>
             <p>Vac Track is an Android app that helps users to manage their vacations and excursions in a streamlined, offline environment.It uses a clean UI, industry standard security features such as input validation, and Room to reduce dependencies.</p><br>
             <p>Vac Track is currently available on <b><a href="https://zif0.itch.io/vac-track" target="_blank">Itch.io for free.</a></b></p><br>
             <b>Features Include:</b>

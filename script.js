@@ -54,11 +54,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 
-  sections.forEach(section => {
-    if (!section.classList.contains("intro")) {
-      section.classList.add("sectionHidden");
-      observer.observe(section);
-    }
+  //hamburger menu for mobile
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("navMenu");
+  const overlay = document.querySelector(".mobileOverlay");
+
+  function toggleMobileMenu() {
+    navMenu.classList.toggle("showMenu");
+    overlay.classList.toggle("showOverlay");
+  }
+
+  hamburger.addEventListener("click", toggleMobileMenu);
+  overlay.addEventListener("click", toggleMobileMenu);
+
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("showMenu");
+      overlay.classList.remove("showOverlay");
+    });
   });
 });
 

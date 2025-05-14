@@ -5,7 +5,7 @@
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1050px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -37,7 +37,7 @@ header {
   top: 0;
   z-index: 100;
 }
-  
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -163,6 +163,119 @@ footer {
   position: relative;
 }
 
+.experience h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* experience */
+.job {
+  margin-bottom: 2.5rem;
+}
+
+.job h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.job h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.job ul {
+  list-style-type: disc;
+  margin-left: 1.25rem;
+  padding-left: 1rem;
+}
+
+.job ul li {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+/* skills */
+#skills {
+  margin: 0 auto 4rem auto;
+}
+
+.skillContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skillIcon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.skill p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Education Section */
+.educationContainer {
+  margin-bottom: 2rem;
+}
+
+.educationItem {
+  margin-bottom: 1.5rem;
+}
+
+.eduDate {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Certifications Grid */
+.certContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.certContainer .skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.certContainer .skill:nth-child(4) {
+  grid-column: 1;
+}
+
+.certContainer .skill:nth-child(5) {
+  grid-column: 3;
+}
+
+/* socials */
 .socialLinks {
   margin-top: 1rem;
   display: flex;
@@ -185,18 +298,6 @@ footer {
 
 .socials:hover {
   transform: scale(1.1);
-}
-
-.project {
-  display: grid;
-  grid-template-columns: 1fr 225px;
-  gap: 2rem;
-  align-items: start;
-  margin-top: 2rem;
-}
-
-.projectDescription {
-  font-size: 1rem;
 }
 
 /* contact form */
@@ -321,6 +422,17 @@ form#contactForm button[type="submit"]:hover {
   opacity: 0.8;
 }
 
+.project {
+  display: grid;
+  grid-template-columns: 1fr 225px;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.projectDescription {
+  font-size: 1rem;
+}
 
 .projectGallery {
   width: 100%;
@@ -371,26 +483,60 @@ form#contactForm button[type="submit"]:hover {
 }
 
 /* mobile styling */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
 
-  .logo {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+.hamburger {
+  display: none;
 }
 
 @media (max-width: 768px) {
+  .hamburger {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #0077ff;
+    cursor: pointer;
+    z-index: 200;
+    display: block;
+  }
+
+  .navLinks {
+    position: fixed;
+    top: 50px; 
+    right: 1.6rem;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    display: none;
+    z-index: 150;
+    width: 70%;
+    max-width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  }
+
+  .navLinks.showMenu {
+    display: flex;
+  }
+
+  .mobileOverlay.showOverlay {
+    display: block;
+  }
+
+  .navItem a {
+    padding: 0.5rem;
+    display: block;
+  }
+
   .project {
     display: flex;
     flex-direction: column;
@@ -404,10 +550,33 @@ form#contactForm button[type="submit"]:hover {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 800px;
+  height: 750px;
   border: 1.5px solid #000;
   border-radius: 8px;
   padding: 0;
   margin: 0;
+  }
 }
+
+@media (max-width: 600px) {
+  .skillContainer{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .certContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    padding: 1rem;
+  }
+  
+  .skillIcon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .skill p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
 }
