@@ -54,6 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 
+    sections.forEach(section => {
+    if (!section.classList.contains("intro")) {
+      section.classList.add("sectionHidden");
+      observer.observe(section);
+    }
+  });
+
   //hamburger menu for mobile
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
