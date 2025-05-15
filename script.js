@@ -92,9 +92,13 @@ window.addEventListener("load", () => {
   const main = document.querySelector("main");
   const nav = document.querySelector("nav");
 
-  window.scrollTo(0, 0);
-  document.body.classList.add("lockScroll");
-  nav.classList.add("locked");
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.onbeforeunload = () => {
+    window.scrollTo(0, 0);
+  };
 
   setTimeout(() => {
     welcomeContainer.classList.add("reveal");
@@ -116,10 +120,50 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     main.classList.add("reveal");
     nav.classList.add("reveal");
-    document.body.classList.remove("preload");
+    
     msg2.classList.add("hide"); 
     msg3.classList.add("reveal");
     msg4.classList.add("reveal");
   }, 4000);
+
+  let animationSkipped = false;
+
+  function skipWelcomeAnimation() {
+    if (animationSkipped) return; 
+    animationSkipped = true;
+
+    msg1.classList.remove("reveal");
+    msg1.classList.add("hide");
+    msg2.classList.remove("reveal");
+    msg2.classList.add("hide");
+    msg3.classList.add("reveal");
+    msg4.classList.add("reveal");
+    welcomeContainer.classList.add("reveal");
+    main.classList.add("reveal");
+    nav.classList.add("reveal");
+  }
+
+  window.addEventListener("scroll", () => {
+  const welcomeBottom = welcomeContainer.offsetTop + welcomeContainer.offsetHeight;
+  const scrollPosition = window.scrollY + window.innerHeight;
+
+  if (scrollPosition > welcomeBottom + 800) {
+    skipWelcomeAnimation();
+  }
+  });
+
+  document.querySelectorAll(".navLinks a").forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
+
+      skipWelcomeAnimation();
+
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: "smooth" });
+      }, 800);
+    });
+  });
 });
 

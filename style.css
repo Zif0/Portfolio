@@ -60,27 +60,6 @@ header {
 }
 
 /* welcome animation */
-body.lock-scroll {
-  overflow: hidden;
-  height: 100vh;
-}
-
-body.preload {
-  overflow: hidden;
-  height: 100vh;
-  position: fixed;
-  width: 100%;
-}
-
-body.preload nav{
-  pointer-events: none;
-  opacity: 0;
-}
-
-body.preload #welcomeMessage,
-body.preload main {
-  opacity: 0;
-}
 
 #welcomeMessage {
   position: relative;
@@ -115,17 +94,6 @@ body.preload main {
 .hide {
   opacity: 0 !important;
   padding: 0;
-}
-
-nav {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  pointer-events: none;
-}
-
-nav.reveal {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 /* main */
