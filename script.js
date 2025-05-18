@@ -106,16 +106,16 @@ window.addEventListener("load", () => {
 
   setTimeout(() => {
     msg1.classList.add("reveal");
-  }, 400);
+  }, 250);
 
   setTimeout(() => {
     msg1.classList.remove("reveal");
     msg1.classList.add("hide"); 
-  }, 1600);
+  }, 1200);
 
   setTimeout(() => {
     msg2.classList.add("reveal");
-  }, 2500);
+  }, 1900);
 
   setTimeout(() => {
     main.classList.add("reveal");
@@ -124,7 +124,7 @@ window.addEventListener("load", () => {
     msg2.classList.add("hide"); 
     msg3.classList.add("reveal");
     msg4.classList.add("reveal");
-  }, 4000);
+  }, 3000);
 
   let animationSkipped = false;
 
