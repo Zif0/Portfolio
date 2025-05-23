@@ -220,6 +220,11 @@ footer {
   width: 50px;
 }
 
+#github {
+  height: 40px;
+  width: 40px;
+}
+
 .socials {
   height: 32px;
   width: 32px;
