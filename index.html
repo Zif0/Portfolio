@@ -1,99 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="description" content="Zi Feng - Portfolio Website" />
-  <title>Zi Feng | Portfolio</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Zi Feng - Portfolio Website" />
+    <title>Zi Feng | Portfolio</title>
 
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="Pictures/logo.png" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <img src="Pictures/logo.png" id="logo" />
+        <button class="hamburger" id="hamburger">&#9776;</button>
+        <div class="mobileOverlay"></div>
+        <ul class="navLinks" id="navMenu">
+          <li class="navItem"><a href="/index.html">Home</a></li>
+          <li class="navItem"><a href="#skills">Skills</a></li>
+          <li class="navItem"><a href="#projects">Projects</a></li>
+          <li class="navItem"><a href="#education">Education</a></li>
+          <li class="navItem"><a href="#resume">Resume</a></li>
+          <li class="navItem"><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-</head>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Zi's Portfolio</div>
-      <button class="hamburger" id="hamburger">&#9776;</button>
-      <div class="mobileOverlay"></div>
-      <ul class="navLinks" id="navMenu">
-        <li class="navItem"><a href="#about">About</a></li>
-        <li class="navItem"><a href="#skills">Skills</a></li>
-        <li class="navItem"><a href="#projects">Projects</a></li>
-        <li class="navItem"><a href="#education">Education</a></li>
-        <li class="navItem"><a href="#resume">Resume</a></li>
-        <li class="navItem"><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <main class="container">
+      <section id="welcomeMessage">
+        <div class="welcome-card">
+          <div class="welcome-text">
+            <h1>Hi, I'm Zi.</h1>
+            <p>I'm a <b>systems engineer</b> working on front-end projects.</p>
+          </div>
+          <div class="socialLinks">
+            <a href="https://www.linkedin.com/in/zifeng1" target="_blank"
+              ><img
+                src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png"
+                alt="LinkedIn"
+                class="socials"
+                id="linkedin"
+            /></a>
+            <a href="https://www.github.com/Zif0" target="_blank"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                alt="GitHub"
+                class="socials"
+                id="github"
+            /></a>
+          </div>
+          <div class="separator"></div>
+          <div class="welcome-image">
+            <img
+              src="Pictures/headshot.jpg"
+              id="headshot"
+              alt="Zi's Headshot"
+            />
+          </div>
+        </div>
+      </section>
 
-  <section id="welcomeMessage" class="intro">
-      <h1 id="welcome1">Hi, I'm Zi</h1>
-      <h1 id="welcome2">Welcome To My Portfolio</h1>
-      <h1 id="welcome3">"In the midst of chaos, there is also opportunity."</h1>
-      <h3 id="welcome4">Sun Tzu</h3>
-  </section>
+      <section id="about">
+        <br />
+        <h2>About Me</h2>
+        <br />
+        <p>
+          I'm <b>Zi</b>, a <b>systems engineer</b> with over 2 years of work
+          experience in quality assurance. I earned my
+          <b>B.S. in Software Engineering</b> from Western Governors University
+          in April of 2025.
+        </p>
+        <br />
+        <p>
+          My passion lies in building software and solutions that helps others
+          and make a meaningful impact. Technology has always fascinated me and
+          this is my way of
+          <b
+            >diving deeper while contributing back to the industry I grew up
+            admiring.</b
+          >
+        </p>
+        <br />
+        <p>
+          Outside of tech, I also enjoy picking up skills such as wood/metal
+          working, anodizing, and soldering. I'm also a
+          <b>passionate automotive enthusiast.</b> I have owned many different
+          cars and currently have a fixation with Porsche.
+        </p>
+      </section>
 
-  <main class="container">
-    
-    <section id="about"><br>
-      <h2>About Me</h2><br>
-      <p>I'm <b>Zi</b>, a <b>systems engineer</b> with over 2 years of work experience in quality assurance. I earned my <b>B.S. in Software Engineering</b> from Western Governors University in April of 2025.</p><br>
-      <p>My passion lies in building software and solutions that helps others and make a meaningful impact. Technology has always fascinated me and this is my way of <b>diving deeper while contributing back to the industry I grew up admiring.</b></p><br>
-      <p>Outside of tech, I also enjoy picking up skills such as wood/metal working, anodizing, and soldering. I'm also a <b>passionate automotive enthusiast.</b> I have owned many different cars and currently have a fixation with Porsche.</p>
-    </section>
+      <section id="gallery">
+        <div class="slider">
+          <button class="slidePrev">&#10094;</button>
+          <button class="slideNext">&#10095;</button>
+          <div class="slides">
+            <img src="Pictures/cayman.png" alt="Slide 1" class="slide" />
+            <img src="Pictures/porsches.png" alt="Slide 2" class="slide" />
+            <img src="Pictures/supra.png" alt="Slide 3" class="slide" />
+            <img src="Pictures/brz.jpeg" alt="Slide 4" class="slide" />
+          </div>
+        </div>
+      </section>
 
-    <section id="gallery">
-      <div class="slider">
-        <button class="slidePrev">&#10094;</button>
-        <button class="slideNext">&#10095;</button>
-        <div class="slides">
-          <img src="Pictures/cayman.png" alt="Slide 1" class="slide">
-          <img src="Pictures/porsches.png" alt="Slide 2" class="slide">
-          <img src="Pictures/supra.png" alt="Slide 3" class="slide">
-          <img src="Pictures/brz.jpeg" alt="Slide 4" class="slide">
+      <section id="skills">
+        <h2>Skills</h2>
+        <br />
+        <div class="skillContainer">
+          <div class="skill">
+            <img src="Pictures/Java.png" alt="Java" class="skillIcon" />
+            <p>Java</p>
+          </div>
+          <div class="skill">
+            <img src="Pictures/python.png" alt="Python" class="skillIcon" />
+            <p>Python</p>
+          </div>
+          <div class="skill">
+            <img src="Pictures/html.png" alt="HTML" class="skillIcon" />
+            <p>HTML</p>
+          </div>
+          <div class="skill">
+            <img src="Pictures/css.png" alt="CSS" class="skillIcon" />
+            <p>CSS</p>
+          </div>
+          <div class="skill">
+            <img
+              src="Pictures/javascript.png"
+              alt="Javascript"
+              class="skillIcon"
+            />
+            <p>Javascript</p>
+          </div>
+          <div class="skill">
+            <img src="Pictures/sql.png" alt="SQL" class="skillIcon" />
+            <p>SQL</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="skills">
-      <h2>Skills</h2><br>
-      <div class="skillContainer">
-        <div class="skill">
-          <img src="Pictures/Java.png" alt="Java" class="skillIcon">
-          <p>Java</p>
-        </div>
-        <div class="skill">
-          <img src="Pictures/python.png" alt="Python" class="skillIcon">
-          <p>Python</p>
-        </div>
-        <div class="skill">
-          <img src="Pictures/html.png" alt="HTML" class="skillIcon">
-          <p>HTML</p>
-        </div>
-        <div class="skill">
-          <img src="Pictures/css.png" alt="CSS" class="skillIcon">
-          <p>CSS</p>
-        </div>
-        <div class="skill">
-          <img src="Pictures/javascript.png" alt="Javascript" class="skillIcon">
-          <p>Javascript</p>
-        </div>
-        <div class="skill">
-          <img src="Pictures/sql.png" alt="SQL" class="skillIcon">
-          <p>SQL</p>
-        </div>
-      </div>
-    </section>
-
-        <section id="projects">
-      <h2>Projects</h2>
+      <section id="projects">
+        <h2>Projects</h2>
         <div class="project">
           <div class="projectDescription">
             <h3>Vac Track</h3>
-            <h4>Android Studio - Java - Room</h4><br>
-            <p>Vac Track is an Android app that helps users to manage their vacations and excursions in a streamlined, offline environment.It uses a clean UI, industry standard security features such as input validation, and Room to reduce dependencies.</p><br>
-            <p>Vac Track is currently available on <b><a href="https://zif0.itch.io/vac-track" target="_blank">Itch.io for free.</a></b></p><br>
+            <h4>Android Studio - Java - Room</h4>
+            <br />
+            <p>
+              Vac Track is an Android app that helps users to manage their
+              vacations and excursions in a streamlined, offline environment.It
+              uses a clean UI, industry standard security features such as input
+              validation, and Room to reduce dependencies.
+            </p>
+            <br />
+            <p>
+              Vac Track is currently available on
+              <b
+                ><a href="https://zif0.itch.io/vac-track" target="_blank"
+                  >Itch.io for free.</a
+                ></b
+              >
+            </p>
+            <br />
             <b>Features Include:</b>
             <ul>
               <li>Vacation & Excursion Management</li>
@@ -108,89 +179,181 @@
               <button class="slidePrev">&#10094;</button>
               <button class="slideNext">&#10095;</button>
               <div class="slides">
-                <img src="Pictures/VT Login.png" class="slide" alt="Screenshot 1">
-                <img src="Pictures/VT Home.png" class="slide" alt="Screenshot 2">
-                <img src="Pictures/VT Add.png" class="slide" alt="Screenshot 3">
-                <img src="Pictures/VT Edit.png" class="slide" alt="Screenshot 4">
-                <img src="Pictures/VT Excursion.png" class="slide" alt="Screenshot 5">
-                <img src="Pictures/VT Edit 2.png" class="slide" alt="Screenshot 6">
-                <img src="Pictures/VT Select.png" class="slide" alt="Screenshot 7">
-                <img src="Pictures/VT Share.png" class="slide" alt="Screenshot 8">
-                <img src="Pictures/VT Report.png" class="slide" alt="Screenshot 9">
+                <img
+                  src="Pictures/VT Login.png"
+                  class="slide"
+                  alt="Screenshot 1"
+                />
+                <img
+                  src="Pictures/VT Home.png"
+                  class="slide"
+                  alt="Screenshot 2"
+                />
+                <img
+                  src="Pictures/VT Add.png"
+                  class="slide"
+                  alt="Screenshot 3"
+                />
+                <img
+                  src="Pictures/VT Edit.png"
+                  class="slide"
+                  alt="Screenshot 4"
+                />
+                <img
+                  src="Pictures/VT Excursion.png"
+                  class="slide"
+                  alt="Screenshot 5"
+                />
+                <img
+                  src="Pictures/VT Edit 2.png"
+                  class="slide"
+                  alt="Screenshot 6"
+                />
+                <img
+                  src="Pictures/VT Select.png"
+                  class="slide"
+                  alt="Screenshot 7"
+                />
+                <img
+                  src="Pictures/VT Share.png"
+                  class="slide"
+                  alt="Screenshot 8"
+                />
+                <img
+                  src="Pictures/VT Report.png"
+                  class="slide"
+                  alt="Screenshot 9"
+                />
               </div>
             </div>
           </div>
         </div>
-    </section>
+      </section>
 
-    <section id="education">
-      <h2>Education and Certifications</h2><br>
+      <section id="education">
+        <h2>Education and Certifications</h2>
+        <br />
 
-      <div class="educationContainer">
-        <div class="educationItem">
-          <h3>B.S. in Software Engineering - Western Governors University</h3>
-          <p class="eduDate">April 2023 - May 2025</p>
+        <div class="educationContainer">
+          <div class="educationItem">
+            <h3>B.S. in Software Engineering - Western Governors University</h3>
+            <p class="eduDate">April 2023 - May 2025</p>
+          </div>
+          <div class="educationItem">
+            <h3>
+              General Education/Transfer - Truckee Meadows Community College
+            </h3>
+            <p class="eduDate">August 2019 - August 2021</p>
+          </div>
         </div>
-        <div class="educationItem">
-          <h3>General Education/Transfer - Truckee Meadows Community College</h3>
-          <p class="eduDate">August 2019 - August 2021</p>
+
+        <div class="certContainer">
+          <a href="Pictures/degree.png" target="_blank" class="skill">
+            <img src="Pictures/wgu.png" alt="WGU" class="skillIcon" />
+            <p>WGU</p>
+          </a>
+          <a
+            href="https://www.credly.com/badges/f0994fca-d01b-4f7a-840f-6e3a887b3f40/linked_in_profile"
+            target="_blank"
+            class="skill"
+          >
+            <img
+              src="Pictures/aws.png"
+              alt="AWS Cloud Practitioner"
+              class="skillIcon"
+            />
+            <p>AWS Cloud Practitioner</p>
+          </a>
+          <a href="ITIL.pdf" target="_blank" class="skill">
+            <img
+              src="Pictures/itil.png"
+              alt="ITIL v4 Foundation"
+              class="skillIcon"
+            />
+            <p>ITIL v4 Foundation</p>
+          </a>
+          <a
+            href="https://www.coursera.org/account/accomplishments/specialization/certificate/MY2D457U3TVZ"
+            target="_blank"
+            class="skill"
+          >
+            <img
+              src="Pictures/gpm.png"
+              alt="Google Project Management"
+              class="skillIcon"
+            />
+            <p>Google Project Management</p>
+          </a>
+          <a
+            href="https://www.coursera.org/account/accomplishments/specialization/certificate/GZUCL64L8PPH"
+            target="_blank"
+            class="skill"
+          >
+            <img
+              src="Pictures/gis.png"
+              alt="Google IT Support"
+              class="skillIcon"
+            />
+            <p>Google IT Support</p>
+          </a>
         </div>
+      </section>
+
+      <section id="resume">
+        <h2>Resume</h2>
+        <br />
+        <div class="resumeContainer">
+          <iframe
+            src="Zi Resume 2025.pdf"
+            title="Resume"
+            width="100%"
+            height="800px"
+            style="border: none"
+          ></iframe>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <br />
+        <form
+          id="contactForm"
+          action="https://formsubmit.co/92de23b0ce1f60931cfc813010f0bfd6"
+          method="POST"
+        >
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Zi Feng. All rights reserved.</p>
+      <div class="socialLinks">
+        <a href="https://www.linkedin.com/in/zifeng1" target="_blank"
+          ><img
+            src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png"
+            alt="LinkedIn"
+            class="socials"
+            id="linkedin"
+        /></a>
+        <a href="https://www.github.com/Zif0" target="_blank"
+          ><img
+            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+            alt="GitHub"
+            class="socials"
+            id="github"
+        /></a>
       </div>
+    </footer>
 
-      <div class="certContainer">
-        <a href="Pictures/degree.png" target="_blank" class="skill">
-          <img src="Pictures/wgu.png" alt="WGU" class="skillIcon" />
-          <p>WGU</p>
-        </a>
-        <a href="https://www.credly.com/badges/f0994fca-d01b-4f7a-840f-6e3a887b3f40/linked_in_profile" target="_blank" class="skill">
-          <img src="Pictures/aws.png" alt="AWS Cloud Practitioner" class="skillIcon" />
-          <p>AWS Cloud Practitioner</p>
-        </a>
-        <a href="ITIL.pdf" target="_blank" class="skill">
-          <img src="Pictures/itil.png" alt="ITIL v4 Foundation" class="skillIcon" />
-          <p>ITIL v4 Foundation</p>
-        </a>
-        <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/MY2D457U3TVZ" target="_blank" class="skill">
-          <img src="Pictures/gpm.png" alt="Google Project Management" class="skillIcon" />
-          <p>Google Project Management</p>
-        </a>
-        <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/GZUCL64L8PPH" target="_blank" class="skill">
-          <img src="Pictures/gis.png" alt="Google IT Support" class="skillIcon" />
-          <p>Google IT Support</p>
-        </a>
-      </div>
-    </section>
-
-    <section id="resume">
-      <h2>Resume</h2><br>
-      <div class="resumeContainer">
-        <iframe src="Zi Resume 2025.pdf" title="Resume" width="100%" height="800px" style="border: none;"></iframe>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Me</h2><br>
-      <form id="contactForm" action="https://formsubmit.co/92de23b0ce1f60931cfc813010f0bfd6" method="POST">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-        <button type="submit">Submit</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 Zi Feng. All rights reserved.</p>
-    <div class="socialLinks">
-      <a href="https://www.linkedin.com/in/zifeng1" target="_blank"><img  src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png" alt="LinkedIn" class="socials" id="linkedin"></a>
-      <a href="https://www.github.com/Zif0" target="_blank"><img  src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="socials" id="github"></a>
-    </div>
-  </footer>
-
-  <script src="script.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
 </html>

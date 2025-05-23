@@ -1,3 +1,4 @@
+/* general */
 * {
   margin: 0;
   padding: 0;
@@ -5,21 +6,21 @@
 }
 
 .container {
-  max-width: 1050px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
 html, body {
   font-family: 'Inter', sans-serif;
-  background-color: #f9f9f9;
-  color: #1a1a1a;
+  background-color: #181818;
+  color: #ffffff;
   line-height: 1.6;
   scroll-behavior: smooth;
 }
   
 a {
-  color: #0077ff;
+  color: #ffffff;
   text-decoration: none;
   display: inline-block;
   transition: color 0.2s ease, transform 0.2s ease;
@@ -29,9 +30,16 @@ ul {
   list-style: none;
 }
 
+main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+/* header */
 header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
+  background-color: #202020;
+  box-shadow: #0000002d 4px 4px;
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
@@ -59,117 +67,72 @@ header {
   transform: scale(1.1);
 }
 
-/* welcome animation */
-
-#welcomeMessage {
-  position: relative;
-  min-height: 250px;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  padding: 1rem 0;
-  text-align: center;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-#welcome1,
-#welcome2,
-#welcome3,
-#welcome4 {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  position: static;
-  width: 100%;
-  text-align: center;
-  margin: 0;
-}
-
-.reveal {
-  opacity: 1 !important;
-}
-
-.hide {
-  opacity: 0 !important;
-  padding: 0;
-}
-
-/* main */
-main {
-  opacity: 0;
-  transition: opacity 1s ease-out;
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 0 2rem;
+#logo {
+  width: 2rem;
 }
 
 /* sections */
 section {
-  margin-bottom: 4rem;
-}
-
-.sectionHidden {
-  opacity: 0;
-  filter: blur(8px);
-  transform: translateY(40px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out, filter 0.5s ease-out;
-}
-
-.sectionVisible {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateY(0);
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #202020;
+  box-shadow: #0000002d 4px 4px;
+  border-radius: 8px;
 }
 
 footer {
   text-align: center;
   padding: 2rem;
-  background-color: #f1f1f1;
+  background-color: #202020;
   font-size: 0.9rem;
   position: relative;
+  margin-top: 1rem;
 }
 
-.experience h2 {
+.welcome-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.welcome-text {
+  flex: 1;
+}
+
+.welcome-text h1 {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-/* experience */
-.job {
-  margin-bottom: 2.5rem;
+.welcome-text p {
+  font-size: 1.2rem;
+  color: #ffffff;
 }
 
-.job h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
+.separator {
+  width: 4px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  height: 175px;
 }
 
-.job h4 {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #555;
-  margin-bottom: 1rem;
+.welcome-image {
+  flex-shrink: 0;
 }
 
-.job ul {
-  list-style-type: disc;
-  margin-left: 1.25rem;
-  padding-left: 1rem;
+#headshot {
+  width: 12rem;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
-.job ul li {
-  margin-bottom: 0.75rem;
-  line-height: 1.5;
+#about {
+  padding-top: 0;
 }
 
 /* skills */
-#skills {
-  margin: 0 auto 4rem auto;
-}
-
 .skillContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -269,11 +232,6 @@ footer {
 }
 
 /* contact form */
-#contact {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
 form#contactForm {
   display: flex;
   flex-direction: column;
@@ -290,19 +248,15 @@ form#contactForm input,
 form#contactForm textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 1rem;
-  background-color: #ffffff;
-  transition: border-color 0.2s;
   margin-bottom: 0.5rem; 
+  box-shadow: #000 0 4px 4px;
 }
 
 form#contactForm input:focus,
 form#contactForm textarea:focus {
-  border-color: #0077ff;
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+  box-shadow: #000 0 4px 4px;
 }
 
 form#contactForm textarea {
@@ -310,11 +264,10 @@ form#contactForm textarea {
   min-height: 150px;
 }
 
-/* submit */
 form#contactForm button[type="submit"] {
   margin-top: 1rem;
   padding: 0.5rem;
-  background-color: #0077ff;
+  background-color: #004799;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -322,10 +275,11 @@ form#contactForm button[type="submit"] {
   cursor: pointer;
   transition: background-color 0.2s ease;
   text-align: center;
+  box-shadow: #000 0 4px 4px;
 }
 
 form#contactForm button[type="submit"]:hover {
-  background-color: #005fcc;
+  background-color: #002e63;
 }
 
 /* pictures */
@@ -439,12 +393,7 @@ form#contactForm button[type="submit"]:hover {
 }
 
 /* resume*/
-#resume {
-  max-width: 1000px;
-}
-
 .resumeContainer {
-  border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -465,6 +414,10 @@ form#contactForm button[type="submit"]:hover {
 }
 
 @media (max-width: 768px) {
+  #headshot{
+    display: none;
+  }
+
   .hamburger {
     font-size: 1.5rem;
     background: none;
@@ -479,7 +432,7 @@ form#contactForm button[type="submit"]:hover {
     position: fixed;
     top: 50px; 
     right: 1.6rem;
-    background-color: white;
+    background-color: #202020;
     border: 2px solid black;
     border-radius: 10px;
     flex-direction: column;
@@ -524,27 +477,27 @@ form#contactForm button[type="submit"]:hover {
   padding: 0;
   margin: 0;
   }
-}
 
-@media (max-width: 600px) {
   .skillContainer{
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .certContainer {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-    padding: 1rem;
-  }
-  
-  .skillIcon {
-    width: 64px;
-    height: 64px;
-  }
-
-  .skill p {
-    font-size: 0.9rem;
-    text-align: center;
-  }
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 }
+
+.certContainer {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.skillIcon {
+  width: 64px;
+  height: 64px;
+}
+
+.skill p {
+  font-size: 0.9rem;
+  text-align: center;
+}
+}
+
+
