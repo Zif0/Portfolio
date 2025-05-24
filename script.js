@@ -80,4 +80,12 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.classList.remove("showOverlay");
     });
   });
+
+  function toggleMobileMenu() {
+  navMenu.classList.toggle("showMenu");
+  overlay.classList.toggle("showOverlay");
+  hamburger.classList.toggle("active");
+}
+
 });
+

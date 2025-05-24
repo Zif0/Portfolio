@@ -11,21 +11,22 @@
   padding: 0 2rem;
 }
 
-html, body {
-  font-family: 'Inter', sans-serif;
+html,
+body {
+  font-family: "Inter", sans-serif;
   background-color: #181818;
   color: #ffffff;
   line-height: 1.6;
   scroll-behavior: smooth;
 }
-  
+
 a {
   color: #ffffff;
   text-decoration: none;
   display: inline-block;
   transition: color 0.2s ease, transform 0.2s ease;
 }
-  
+
 ul {
   list-style: none;
 }
@@ -41,6 +42,7 @@ header {
   background-color: #202020;
   box-shadow: #0000002d 4px 4px;
   padding: 1rem 2rem;
+  margin-bottom: 5rem;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -53,7 +55,7 @@ header {
   max-width: 1000px;
   margin: 0 auto;
 }
-  
+
 .navLinks {
   display: flex;
   gap: 1.5rem;
@@ -62,7 +64,8 @@ header {
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.navItem:hover, a:hover {
+.navItem:hover,
+a:hover {
   color: #005fcc;
   transform: scale(1.1);
 }
@@ -73,7 +76,7 @@ header {
 
 /* sections */
 section {
-  margin: 1rem;
+  margin: 2rem;
   padding: 1rem;
   background-color: #202020;
   box-shadow: #0000002d 4px 4px;
@@ -86,7 +89,7 @@ footer {
   background-color: #202020;
   font-size: 0.9rem;
   position: relative;
-  margin-top: 1rem;
+  margin-top: 5rem;
 }
 
 .welcome-card {
@@ -175,7 +178,7 @@ footer {
 .eduDate {
   font-size: 1rem;
   font-weight: 500;
-  color: #555;
+  color: #9c9c9c;
   margin-bottom: 1rem;
 }
 
@@ -253,9 +256,10 @@ form#contactForm input,
 form#contactForm textarea {
   width: 100%;
   padding: 0.75rem;
+  border: none;
   border-radius: 8px;
   font-size: 1rem;
-  margin-bottom: 0.5rem; 
+  margin-bottom: 0.5rem;
   box-shadow: #000 0 4px 4px;
 }
 
@@ -327,7 +331,7 @@ form#contactForm button[type="submit"]:hover {
   background-color: #0077ff;
   color: white;
   border: none;
-  padding: 0.25rem .7rem;
+  padding: 0.25rem 0.7rem;
   font-size: 1rem;
   cursor: pointer;
   z-index: 10;
@@ -379,18 +383,18 @@ form#contactForm button[type="submit"]:hover {
 .projectGallery .slides {
   display: flex;
   height: 100%;
-  width: 100%;             
-  max-width: 100%;         
-  flex-wrap: nowrap;       
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: nowrap;
   transition: transform 0.4s ease-in-out;
   padding: 0;
   margin: 0;
 }
 
 .projectGallery .slide {
-  flex: 0 0 100%;           
-  width: 100%;              
-  height: 100%;             
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
   margin: 0;
@@ -408,8 +412,10 @@ form#contactForm button[type="submit"]:hover {
 .mobileOverlay {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 100;
 }
@@ -419,7 +425,9 @@ form#contactForm button[type="submit"]:hover {
 }
 
 @media (max-width: 768px) {
-  #headshot{
+  
+
+  #headshot {
     display: none;
   }
 
@@ -433,9 +441,14 @@ form#contactForm button[type="submit"]:hover {
     display: block;
   }
 
+  .hamburger.active {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+  }
+
   .navLinks {
     position: fixed;
-    top: 50px; 
+    top: 50px;
     right: 1.6rem;
     background-color: #202020;
     border: 2px solid black;
@@ -447,11 +460,14 @@ form#contactForm button[type="submit"]:hover {
     z-index: 150;
     width: 70%;
     max-width: 300px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   }
 
   .navLinks.showMenu {
     display: flex;
+    transform: translateX(0%);
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .mobileOverlay.showOverlay {
@@ -473,36 +489,34 @@ form#contactForm button[type="submit"]:hover {
   }
 
   .projectGallery .slider {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 750px;
-  border: 1.5px solid #000;
-  border-radius: 8px;
-  padding: 0;
-  margin: 0;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 750px;
+    border: 1.5px solid #000;
+    border-radius: 8px;
+    padding: 0;
+    margin: 0;
   }
 
-  .skillContainer{
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
+  .skillContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 
-.certContainer {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  justify-content: center;
-}
+  .certContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    justify-content: center;
+  }
 
-.skillIcon {
-  width: 64px;
-  height: 64px;
-}
+  .skillIcon {
+    width: 64px;
+    height: 64px;
+  }
 
-.skill p {
-  font-size: 0.9rem;
-  text-align: center;
+  .skill p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
 }
-}
-
-
