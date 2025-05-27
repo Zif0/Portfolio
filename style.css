@@ -44,7 +44,7 @@ main {
 /* header */
 header {
   background-color: #202020;
-  box-shadow: #0000002d 4px 4px;
+  box-shadow: 0 0 10px 4px #0000002d;
   padding: 1rem 2rem;
   margin-bottom: 5rem;
   position: sticky;
@@ -85,7 +85,7 @@ section {
   padding: 1rem;
   padding-bottom: 1.5rem;
   background-color: #202020;
-  box-shadow: #0000002d 4px 4px;
+  box-shadow: 0 0 10px 4px #0000002d;
   border-radius: 8px;
 }
 
@@ -96,10 +96,6 @@ footer {
   font-size: 0.9rem;
   position: relative;
   margin-top: 5rem;
-}
-
-#welcome-message {
-  margin-bottom: 75rem;
 }
 
 .welcome-card {
@@ -147,13 +143,106 @@ footer {
   transform: translateY(0);
 }
 
+#contact {
+  margin-bottom: 1rem;
+}
+
+/* projects carousel */
+#project-carousel {
+  margin-bottom: 35rem;
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.4s ease-in-out;
+}
+
+.project-card {
+  flex: 0 0 calc(33.333% - 1.33rem);
+  background-color: #181818;
+  border-radius: 8px;
+  overflow: auto;
+  text-align: center;
+  box-shadow: 0 0 10px 4px #0000002d;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+}
+
+.project-img {
+  padding-top: 1.5rem;
+  width: 100%;
+  height: 200px;
+  object-fit: scale-down;
+}
+
+.placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: #fff;
+}
+
+.project-info {
+  padding: 1rem;
+}
+
+.tech-stack {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.project-hover-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(24, 24, 24, 0.9);
+  color: #fff;
+  opacity: 0;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-hover-description {
+  opacity: 1;
+}
+
+.carousel-btn:hover {
+  background: #005fcc;
+}
+
+.carousel-btn.left {
+  left: -1rem;
+}
+
+.carousel-btn.right {
+  right: -1rem;
+}
+
 /* scroll reminder */
 #scrollHint {
   position: fixed;
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #202020;
+  background-color: #181818;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   color: #fff;
@@ -163,6 +252,7 @@ footer {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+  box-shadow: 0 0 10px 4px #0000002d;
 }
 
 #scrollHint.visible {
@@ -310,12 +400,12 @@ form#contactForm textarea {
   border-radius: 8px;
   font-size: 1rem;
   margin-bottom: 0.5rem;
-  box-shadow: #000 0 4px 4px;
+  box-shadow: 0 0 10px 4px #0000002d;
 }
 
 form#contactForm input:focus,
 form#contactForm textarea:focus {
-  box-shadow: #000 0 4px 4px;
+  box-shadow: 0 0 10px 4px #0000002d;
 }
 
 form#contactForm textarea {
@@ -334,7 +424,7 @@ form#contactForm button[type="submit"] {
   cursor: pointer;
   transition: background-color 0.2s ease;
   text-align: center;
-  box-shadow: #000 0 4px 4px;
+  box-shadow: 0 0 10px 4px #0000002d;
 }
 
 form#contactForm button[type="submit"]:hover {
@@ -455,7 +545,7 @@ form#contactForm button[type="submit"]:hover {
 .resumeContainer {
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 10px 4px #0000002d;
 }
 
 /* mobile styling */
@@ -507,7 +597,7 @@ form#contactForm button[type="submit"]:hover {
     z-index: 150;
     width: 70%;
     max-width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 10px 4px #0000002d;
     transform-origin: top;
     transform: scaleY(0);
     opacity: 0;

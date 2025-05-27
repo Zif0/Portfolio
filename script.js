@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Force top of page on reload
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
   }
@@ -7,18 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo(0, 0);
   };
 
-  // smooth scroll for nav
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  });
-
-  // pic slideshow
+  // Image slideshow
   document.querySelectorAll(".slider").forEach((slider) => {
     const slidesContainer = slider.querySelector(".slides");
     const slides = slider.querySelectorAll(".slide");
@@ -43,6 +33,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateSlidePosition();
   });
+
+  // Project carousel
+  const track = document.querySelector(".carousel-track");
+  const leftBtn = document.querySelector(".slidePrev");
+  const rightBtn = document.querySelector(".slideNext");
+  const cards = document.querySelectorAll(".project-card");
+
+  const visibleCards = 3;
+  const cardGap = 32;
+  const cardWidth = cards[0].offsetWidth + cardGap;
+
+  let currentIndex = visibleCards;
+
+  const clones = {
+    start: Array.from(cards)
+      .slice(-visibleCards)
+      .map((card) => card.cloneNode(true)),
+    end: Array.from(cards)
+      .slice(0, visibleCards)
+      .map((card) => card.cloneNode(true)),
+  };
+
+  clones.start.forEach((clone) => track.prepend(clone));
+  clones.end.forEach((clone) => track.appendChild(clone));
+
+  const allCards = track.querySelectorAll(".project-card");
+  const totalCards = allCards.length;
+
+  const setTransform = (instant = false) => {
+    track.style.transition = instant ? "none" : "transform 0.4s ease-in-out";
+    track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+  };
+
+  const handleTransitionEnd = (edgeIndex, resetIndex) => {
+    return function handler() {
+      if (currentIndex === edgeIndex) {
+        currentIndex = resetIndex;
+        setTransform(true);
+      }
+      track.removeEventListener("transitionend", handler);
+    };
+  };
+
+  setTransform(true);
+
+  rightBtn.addEventListener("click", () => {
+    if (currentIndex >= totalCards - visibleCards) return;
+    currentIndex++;
+    setTransform();
+    track.addEventListener(
+      "transitionend",
+      handleTransitionEnd(totalCards - visibleCards, visibleCards)
+    );
+  });
+
+  leftBtn.addEventListener("click", () => {
+    if (currentIndex <= 0) return;
+    currentIndex--;
+    setTransform();
+    track.addEventListener(
+      "transitionend",
+      handleTransitionEnd(0, totalCards - visibleCards * 2)
+    );
+  });
+
+  window.addEventListener("resize", () => setTransform(true));
 
   //scroll reveal
   const sections = document.querySelectorAll("section");
@@ -108,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hideHintTemporarily();
   });
 
-  //hamburger menu for mobile
+  // Hamburger menu
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
   const overlay = document.querySelector(".mobileOverlay");
@@ -116,6 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function toggleMobileMenu() {
     navMenu.classList.toggle("showMenu");
     overlay.classList.toggle("showOverlay");
+    hamburger.classList.toggle("active");
   }
 
   hamburger.addEventListener("click", toggleMobileMenu);
@@ -125,12 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", () => {
       navMenu.classList.remove("showMenu");
       overlay.classList.remove("showOverlay");
+      hamburger.classList.remove("active");
     });
   });
-
-  function toggleMobileMenu() {
-    navMenu.classList.toggle("showMenu");
-    overlay.classList.toggle("showOverlay");
-    hamburger.classList.toggle("active");
-  }
 });
