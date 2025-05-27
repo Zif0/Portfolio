@@ -1,8 +1,14 @@
-
 document.addEventListener("DOMContentLoaded", () => {
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  window.onbeforeunload = () => {
+    window.scrollTo(0, 0);
+  };
 
   // smooth scroll for nav
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => { 
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute("href"));
@@ -42,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
   const observer = new IntersectionObserver(
     (entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("sectionVisible");
           observer.unobserve(entry.target);
@@ -54,11 +60,52 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 
-    sections.forEach(section => {
+  //scroll reminder
+  sections.forEach((section) => {
     if (!section.classList.contains("intro")) {
       section.classList.add("sectionHidden");
       observer.observe(section);
     }
+  });
+
+  const scrollHint = document.getElementById("scrollHint");
+  let hideHintTimeout;
+
+  function checkRevealableSections() {
+    const hiddenSections = [...document.querySelectorAll(".sectionHidden")];
+    const scrollBottom = window.scrollY + window.innerHeight;
+
+    return hiddenSections.some(
+      (section) =>
+        section.getBoundingClientRect().top + window.scrollY > scrollBottom
+    );
+  }
+
+  function showHintIfNeeded() {
+    if (checkRevealableSections()) {
+      scrollHint.classList.add("visible");
+    }
+  }
+
+  function hideHintTemporarily() {
+    scrollHint.classList.remove("visible");
+
+    clearTimeout(hideHintTimeout);
+    hideHintTimeout = setTimeout(() => {
+      if (checkRevealableSections()) {
+        scrollHint.classList.add("visible");
+      }
+    }, 5000);
+  }
+
+  setTimeout(() => {
+    if (checkRevealableSections()) {
+      scrollHint.classList.add("visible");
+    }
+  }, 1500);
+
+  window.addEventListener("scroll", () => {
+    hideHintTemporarily();
   });
 
   //hamburger menu for mobile
@@ -74,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   hamburger.addEventListener("click", toggleMobileMenu);
   overlay.addEventListener("click", toggleMobileMenu);
 
-  navMenu.querySelectorAll("a").forEach(link => {
+  navMenu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       navMenu.classList.remove("showMenu");
       overlay.classList.remove("showOverlay");
@@ -82,10 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function toggleMobileMenu() {
-  navMenu.classList.toggle("showMenu");
-  overlay.classList.toggle("showOverlay");
-  hamburger.classList.toggle("active");
-}
-
+    navMenu.classList.toggle("showMenu");
+    overlay.classList.toggle("showOverlay");
+    hamburger.classList.toggle("active");
+  }
 });
-
