@@ -36,69 +36,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Project carousel
   const track = document.querySelector(".carousel-track");
-  const leftBtn = document.querySelector(".slidePrev");
-  const rightBtn = document.querySelector(".slideNext");
   const cards = document.querySelectorAll(".project-card");
 
-  const visibleCards = 3;
-  const cardGap = 32;
-  const cardWidth = cards[0].offsetWidth + cardGap;
+  if (track && cards.length > 0) {
+    const leftBtn = document.querySelector(".slidePrev");
+    const rightBtn = document.querySelector(".slideNext");
 
-  let currentIndex = visibleCards;
+    const visibleCards = 3;
+    const cardGap = 32;
+    const cardWidth = cards[0].offsetWidth + cardGap;
 
-  const clones = {
-    start: Array.from(cards)
-      .slice(-visibleCards)
-      .map((card) => card.cloneNode(true)),
-    end: Array.from(cards)
-      .slice(0, visibleCards)
-      .map((card) => card.cloneNode(true)),
-  };
+    let currentIndex = visibleCards;
 
-  clones.start.forEach((clone) => track.prepend(clone));
-  clones.end.forEach((clone) => track.appendChild(clone));
-
-  const allCards = track.querySelectorAll(".project-card");
-  const totalCards = allCards.length;
-
-  const setTransform = (instant = false) => {
-    track.style.transition = instant ? "none" : "transform 0.4s ease-in-out";
-    track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
-  };
-
-  const handleTransitionEnd = (edgeIndex, resetIndex) => {
-    return function handler() {
-      if (currentIndex === edgeIndex) {
-        currentIndex = resetIndex;
-        setTransform(true);
-      }
-      track.removeEventListener("transitionend", handler);
+    const clones = {
+      start: Array.from(cards)
+        .slice(-visibleCards)
+        .map((card) => card.cloneNode(true)),
+      end: Array.from(cards)
+        .slice(0, visibleCards)
+        .map((card) => card.cloneNode(true)),
     };
-  };
 
-  setTransform(true);
+    clones.start.forEach((clone) => track.prepend(clone));
+    clones.end.forEach((clone) => track.appendChild(clone));
 
-  rightBtn.addEventListener("click", () => {
-    if (currentIndex >= totalCards - visibleCards) return;
-    currentIndex++;
-    setTransform();
-    track.addEventListener(
-      "transitionend",
-      handleTransitionEnd(totalCards - visibleCards, visibleCards)
-    );
-  });
+    const allCards = track.querySelectorAll(".project-card");
+    const totalCards = allCards.length;
 
-  leftBtn.addEventListener("click", () => {
-    if (currentIndex <= 0) return;
-    currentIndex--;
-    setTransform();
-    track.addEventListener(
-      "transitionend",
-      handleTransitionEnd(0, totalCards - visibleCards * 2)
-    );
-  });
+    const setTransform = (instant = false) => {
+      track.style.transition = instant ? "none" : "transform 0.4s ease-in-out";
+      track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+    };
 
-  window.addEventListener("resize", () => setTransform(true));
+    const handleTransitionEnd = (edgeIndex, resetIndex) => {
+      return function handler() {
+        if (currentIndex === edgeIndex) {
+          currentIndex = resetIndex;
+          setTransform(true);
+        }
+        track.removeEventListener("transitionend", handler);
+      };
+    };
+
+    setTransform(true);
+
+    rightBtn.addEventListener("click", () => {
+      if (currentIndex >= totalCards - visibleCards) return;
+      currentIndex++;
+      setTransform();
+      track.addEventListener(
+        "transitionend",
+        handleTransitionEnd(totalCards - visibleCards, visibleCards)
+      );
+    });
+
+    leftBtn.addEventListener("click", () => {
+      if (currentIndex <= 0) return;
+      currentIndex--;
+      setTransform();
+      track.addEventListener(
+        "transitionend",
+        handleTransitionEnd(0, totalCards - visibleCards * 2)
+      );
+    });
+
+    window.addEventListener("resize", () => setTransform(true));
+  }
 
   //scroll reveal
   const sections = document.querySelectorAll("section");
