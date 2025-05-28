@@ -81,7 +81,7 @@ a:hover {
 /* sections */
 section {
   margin: 2rem;
-  margin-bottom: 10rem;
+  margin-bottom: 6rem;
   padding: 1rem;
   padding-bottom: 1.5rem;
   background-color: #202020;
@@ -147,11 +147,7 @@ footer {
   margin-bottom: 1rem;
 }
 
-/* projects carousel */
-#project-carousel {
-  margin-bottom: 35rem;
-}
-
+/* project carousel */
 .carousel-wrapper {
   position: relative;
   overflow: hidden;
@@ -162,10 +158,11 @@ footer {
   display: flex;
   gap: 2rem;
   transition: transform 0.4s ease-in-out;
+  will-change: transform;
 }
 
 .project-card {
-  flex: 0 0 calc(33.333% - 1.33rem);
+  flex: 0 0 calc((100% / 3) - (2rem * 2 / 3)); 
   background-color: #181818;
   border-radius: 8px;
   overflow: auto;
@@ -174,7 +171,7 @@ footer {
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease;
-  margin: 1rem 0rem 1rem 0rem;
+  margin: 1rem 0 0;
 }
 
 .project-card:hover {
@@ -224,25 +221,13 @@ footer {
   opacity: 1;
 }
 
-.carousel-btn:hover {
-  background: #005fcc;
-}
-
-.carousel-btn.left {
-  left: -1rem;
-}
-
-.carousel-btn.right {
-  right: -1rem;
-}
-
 /* scroll reminder */
 #scrollHint {
   position: fixed;
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #181818;
+  background-color: #202020;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   color: #fff;
@@ -535,7 +520,7 @@ form#contactForm button[type="submit"]:hover {
   flex: 0 0 100%;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: scale-down;
   display: block;
   margin: 0;
   padding: 0;
@@ -582,7 +567,8 @@ form#contactForm button[type="submit"]:hover {
   }
 
   .project-card {
-    min-width: 100%;
+    flex: 0 0 100%;
+    margin: 1rem 0;
   }
 
   .hamburger {
@@ -650,7 +636,7 @@ form#contactForm button[type="submit"]:hover {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 600px;
+    height: 60vh;
     border: 1.5px solid #000;
     border-radius: 8px;
     padding: 0;
@@ -684,6 +670,6 @@ form#contactForm button[type="submit"]:hover {
   }
 
   .resumeContainer iframe {
-    height: 60vh;  /* shorter height for mobile */
+    height: 80vh;
   }
 }

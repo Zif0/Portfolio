@@ -37,38 +37,50 @@ document.addEventListener("DOMContentLoaded", () => {
   // Project carousel
   const track = document.querySelector(".carousel-track");
   const cards = document.querySelectorAll(".project-card");
+  const leftBtn = document.querySelector(".slidePrev");
+  const rightBtn = document.querySelector(".slideNext");
 
-  if (track && cards.length > 0) {
-    const leftBtn = document.querySelector(".slidePrev");
-    const rightBtn = document.querySelector(".slideNext");
-
-    const visibleCards = 3;
-    const cardGap = 32;
-    const cardWidth = cards[0].offsetWidth + cardGap;
-
+  if (track && cards.length > 0 && leftBtn && rightBtn) {
+    let visibleCards = getVisibleCards();
+    let cardWidth = 0;
     let currentIndex = visibleCards;
 
-    const clones = {
-      start: Array.from(cards)
+    let clones = { start: [], end: [] };
+
+    function getVisibleCards() {
+      return window.innerWidth <= 768 ? 1 : 3;
+    }
+
+    function updateCardWidth() {
+      const cardStyle = window.getComputedStyle(cards[0]);
+      const gap = parseInt(getComputedStyle(track).gap) || 0;
+      cardWidth = cards[0].offsetWidth + gap;
+    }
+
+    function clearClones() {
+      clones.start.forEach((clone) => clone.remove());
+      clones.end.forEach((clone) => clone.remove());
+      clones = { start: [], end: [] };
+    }
+
+    function addClones() {
+      clones.start = Array.from(cards)
         .slice(-visibleCards)
-        .map((card) => card.cloneNode(true)),
-      end: Array.from(cards)
+        .map((card) => card.cloneNode(true));
+      clones.start.forEach((clone) => track.prepend(clone));
+
+      clones.end = Array.from(cards)
         .slice(0, visibleCards)
-        .map((card) => card.cloneNode(true)),
-    };
+        .map((card) => card.cloneNode(true));
+      clones.end.forEach((clone) => track.appendChild(clone));
+    }
 
-    clones.start.forEach((clone) => track.prepend(clone));
-    clones.end.forEach((clone) => track.appendChild(clone));
-
-    const allCards = track.querySelectorAll(".project-card");
-    const totalCards = allCards.length;
-
-    const setTransform = (instant = false) => {
+    function setTransform(instant = false) {
       track.style.transition = instant ? "none" : "transform 0.4s ease-in-out";
       track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
-    };
+    }
 
-    const handleTransitionEnd = (edgeIndex, resetIndex) => {
+    function handleTransitionEnd(edgeIndex, resetIndex) {
       return function handler() {
         if (currentIndex === edgeIndex) {
           currentIndex = resetIndex;
@@ -76,11 +88,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         track.removeEventListener("transitionend", handler);
       };
-    };
+    }
 
-    setTransform(true);
+    function rebuildCarousel() {
+      visibleCards = getVisibleCards();
+      clearClones();
+      addClones();
+      currentIndex = visibleCards;
+      updateCardWidth();
+      setTransform(true);
+    }
+
+    rebuildCarousel();
 
     rightBtn.addEventListener("click", () => {
+      const allCards = track.querySelectorAll(".project-card");
+      const totalCards = allCards.length;
       if (currentIndex >= totalCards - visibleCards) return;
       currentIndex++;
       setTransform();
@@ -91,6 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     leftBtn.addEventListener("click", () => {
+      const allCards = track.querySelectorAll(".project-card");
+      const totalCards = allCards.length;
       if (currentIndex <= 0) return;
       currentIndex--;
       setTransform();
@@ -100,7 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
 
-    window.addEventListener("resize", () => setTransform(true));
+    window.addEventListener("resize", () => {
+      rebuildCarousel();
+    });
   }
 
   //scroll reveal
