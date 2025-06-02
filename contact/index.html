@@ -7,7 +7,7 @@
     <meta name="description" content="Zi Feng - Portfolio Website" />
     <title>Zi Feng | Portfolio</title>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
@@ -17,31 +17,44 @@
   <body>
     <header>
       <nav class="navbar">
-        <img src="Pictures/logo.png" id="logo" />
+        <img src="/Pictures/logo.png" id="logo" />
         <button class="hamburger" id="hamburger">&#9776;</button>
         <div class="mobileOverlay"></div>
         <ul class="navLinks" id="navMenu">
-          <li class="navItem"><a href="/index.html">Home</a></li>
-          <li class="navItem"><a href="/projects.html">Projects</a></li>
-          <li class="navItem"><a href="/resume.html">Resume</a></li>
-          <li class="navItem"><a href="/contact.html">Contact</a></li>
+          <li class="navItem"><a href="/">Home</a></li>
+          <li class="navItem"><a href="/projects">Projects</a></li>
+          <li class="navItem"><a href="/resume">Resume</a></li>
+          <li class="navItem"><a href="/contact">Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <main class="container">
-      <section id="resume">
-        <h2>Resume</h2>
+      <section id="contact">
+        <h2>Contact Information</h2>
+        <br>
+        <h3>Email: <a href="mailto:zif2022@gmail.com" target="_blank"><b>Zif2022@gmail.com</b></a></h3>
+        <h3>LinkedIn: <a href="https://www.linkedin.com/in/zifeng1" target="_blank"><b>Zi Feng</b></a></h3>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Me</h2>
         <br />
-        <div class="resumeContainer">
-          <iframe
-            src="Zi Resume 2025.pdf"
-            title="Resume"
-            width="100%"
-            height="800px"
-            style="border: none"
-          ></iframe>
-        </div>
+        <form
+          id="contactForm"
+          action="https://formsubmit.co/92de23b0ce1f60931cfc813010f0bfd6"
+          method="POST"
+        >
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
       </section>
     </main>
 
@@ -62,14 +75,14 @@
         /></a>
         <a href="https://www.github.com/Zif0" target="_blank"
           ><img
-            src="Pictures/github.png"
+            src="/Pictures/github.png"
             alt="GitHub"
             class="socials"
             id="github"
         /></a>
       </div>
     </footer>
-    
-    <script src="script.js" defer></script>
+
+    <script src="/script.js" defer></script>
   </body>
 </html>

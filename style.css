@@ -429,7 +429,7 @@ form#contactForm button[type="submit"]:hover {
   max-width: 100%;
   height: auto;
   margin: 0 auto;
-  outline: #000000 solid 1.5px;
+  border: 2px solid #fff;
   border-radius: 8px;
 }
 
@@ -444,7 +444,6 @@ form#contactForm button[type="submit"]:hover {
   height: 100%;
   display: block;
   object-fit: cover;
-  border-radius: 8px;
 }
 
 .slidePrev,
