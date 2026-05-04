@@ -3,6 +3,7 @@ import { initSliders } from "./slider.js";
 import { initProjectCarousel } from "./project-carousel.js";
 import { initScrollUi } from "./scroll-ui.js";
 import { initMobileNav } from "./mobile-nav.js";
+import { initCursorHalo } from "./cursor-halo.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initScrollRestore();
@@ -10,4 +11,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initProjectCarousel();
   initScrollUi();
   initMobileNav();
+  initCursorHalo();
 });

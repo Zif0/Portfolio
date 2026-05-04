@@ -922,8 +922,10 @@ iframe.resume-viewer {
   display: block;
   width: 100%;
   border: none;
-  min-height: 100%;
-  height: max(1100px, calc(100vh - 12rem));
+  min-height: 0;
+  /* Modest viewer; scroll inside iframe for full PDF */
+  height: clamp(360px, 52vh, 720px);
+  max-height: calc(100vh - 10rem);
   background: var(--surface-elevated);
 }
 
@@ -931,10 +933,10 @@ iframe.resume-viewer {
 .mobileOverlay {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  width: auto;
+  height: auto;
+  min-height: 100%;
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(4px);
   z-index: 100;
@@ -945,6 +947,56 @@ iframe.resume-viewer {
 }
 
 @media (max-width: 768px) {
+  /* Avoid horizontal scroll / phantom “shift” from 100vw + scrollbar */
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+
+  main {
+    padding-left: max(1rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1rem, env(safe-area-inset-right, 0px));
+  }
+
+  main img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  section {
+    margin: 2rem auto 6rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .skillContainer,
+  .certContainer {
+    width: 100%;
+    justify-items: stretch;
+    justify-content: center;
+  }
+
+  .skillContainer .skill,
+  .certContainer .skill {
+    justify-self: center;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .skillIcon,
+  .certContainer .skill .skillIcon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .welcome-card {
     flex-direction: column;
     align-items: flex-start;
@@ -975,7 +1027,7 @@ iframe.resume-viewer {
     border: 1px solid var(--glass-border);
     color: var(--text);
     cursor: pointer;
-    z-index: 200;
+    z-index: 260;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1000,8 +1052,9 @@ iframe.resume-viewer {
 
   .navLinks {
     position: fixed;
-    top: 56px;
-    right: 1.25rem;
+    top: calc(4.5rem + env(safe-area-inset-top, 0px));
+    /* Match header horizontal padding so right edge lines up with the hamburger */
+    right: max(2rem, env(safe-area-inset-right, 0px));
     background: rgba(31, 31, 35, 0.98);
     backdrop-filter: blur(var(--header-blur));
     border: 1px solid var(--border-subtle);
@@ -1009,8 +1062,8 @@ iframe.resume-viewer {
     flex-direction: column;
     align-items: stretch;
     padding: 0.75rem;
-    z-index: 150;
-    width: 70%;
+    z-index: 250;
+    width: min(70vw, 300px);
     max-width: 300px;
     box-shadow: var(--shadow-lift);
     transform-origin: top right;
@@ -1088,8 +1141,9 @@ iframe.resume-viewer {
 
   .resumeContainer iframe,
   iframe.resume-viewer {
-    min-height: 1200px;
-    height: max(78vh, 1200px);
+    min-height: 0;
+    height: clamp(260px, 42dvh, 550px);
+    max-height: 45dvh;
   }
 
   .quote-block blockquote {
@@ -1110,4 +1164,80 @@ iframe.resume-viewer {
     bottom: 0;
     top: auto;
   }
+}
+
+/* --- Cursor halo (fine pointer only; see cursor-halo.js) --- */
+.cursor-halo {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+  will-change: transform, opacity;
+  --halo-interactive: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.12) 38%,
+    transparent 72%
+  );
+  box-shadow:
+    0 0 6px 2px rgba(255, 255, 255, 0.45),
+    0 0 18px 6px rgba(255, 255, 255, 0.18),
+    0 0 36px 12px rgba(255, 255, 255, 0.08);
+  mix-blend-mode: screen;
+}
+
+.cursor-halo--bright {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(255, 255, 255, 0.28) 42%,
+    transparent 74%
+  );
+  box-shadow:
+    0 0 10px 4px rgba(255, 255, 255, 0.75),
+    0 0 26px 10px rgba(255, 255, 255, 0.38),
+    0 0 52px 18px rgba(96, 165, 250, 0.22),
+    0 0 72px 28px rgba(255, 255, 255, 0.12);
+}
+
+.cursor-halo--visible {
+  opacity: 1;
+}
+
+/* Hide system cursor everywhere the halo is active (links/buttons included). */
+html.cursor-halo-active,
+html.cursor-halo-active *,
+body.cursor-halo-active,
+body.cursor-halo-active * {
+  cursor: none !important;
+}
+
+html.cursor-halo-active input[type="text"],
+html.cursor-halo-active input[type="email"],
+html.cursor-halo-active input[type="search"],
+html.cursor-halo-active input[type="url"],
+html.cursor-halo-active input[type="password"],
+html.cursor-halo-active input[type="tel"],
+html.cursor-halo-active input[type="number"],
+html.cursor-halo-active textarea,
+body.cursor-halo-active input[type="text"],
+body.cursor-halo-active input[type="email"],
+body.cursor-halo-active input[type="search"],
+body.cursor-halo-active input[type="url"],
+body.cursor-halo-active input[type="password"],
+body.cursor-halo-active input[type="tel"],
+body.cursor-halo-active input[type="number"],
+body.cursor-halo-active textarea {
+  cursor: text !important;
 }
