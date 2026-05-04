@@ -8,17 +8,30 @@
     <title>Zi Feng | Portfolio</title>
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" href="Pictures/logo.png" />
   </head>
   <body>
     <header>
-      <nav class="navbar">
-        <img src="Pictures/logo.png" id="logo" />
-        <button class="hamburger" id="hamburger">&#9776;</button>
+      <nav class="navbar" aria-label="Main">
+        <a href="/" aria-label="Home"
+          ><img src="Pictures/logo.png" id="logo" alt=""
+        /></a>
+        <button
+          class="hamburger"
+          id="hamburger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navMenu"
+          aria-label="Open menu"
+        >
+          &#9776;
+        </button>
         <div class="mobileOverlay"></div>
         <ul class="navLinks" id="navMenu">
           <li class="navItem"><a href="/">Home</a></li>
@@ -34,17 +47,20 @@
         <div class="welcome-card">
           <div class="welcome-text">
             <h1>Hi, I'm Zi.</h1>
-            <p>Data Engineer at Amazon | Founder of Intsu</p>
+            <p class="tagline">
+              <strong>Data Engineer</strong> at Amazon · Founder of
+              <strong>Intsu</strong>
+            </p>
           </div>
           <div class="socialLinks">
-            <a href="https://www.linkedin.com/in/zifeng1" target="_blank"
+            <a href="https://www.linkedin.com/in/zifeng1" target="_blank" rel="noopener noreferrer"
               ><img
                 src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png"
                 alt="LinkedIn"
                 class="socials"
                 id="linkedin"
             /></a>
-            <a href="https://www.github.com/Zif0" target="_blank"
+            <a href="https://www.github.com/Zif0" target="_blank" rel="noopener noreferrer"
               ><img
                 src="Pictures/github.png"
                 alt="GitHub"
@@ -52,17 +68,18 @@
                 id="github"
             /></a>
           </div>
-          <div class="separator"></div>
+          <div class="separator" aria-hidden="true"></div>
         </div>
       </section>
 
-      <section id="project-carousel">
-        <h2>Projects</h2>
+      <section id="project-carousel" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projects</h2>
         <div class="carousel-wrapper">
-          <button class="slidePrev">&#10094;</button>
+          <button type="button" class="slidePrev" aria-label="Previous projects">
+            &#10094;
+          </button>
           <div class="carousel-track">
-
-            <a href="/projects/index.html#fin" class="project-card">
+            <a href="/projects/index.html#intsu" class="project-card">
               <img
                 src="Pictures/Intsu Logo.png"
                 alt="Fin App Logo"
@@ -107,55 +124,59 @@
               </div>
             </a>
           </div>
-          <button class="slideNext">&#10095;</button>
+          <button type="button" class="slideNext" aria-label="Next projects">
+            &#10095;
+          </button>
         </div>
       </section>
 
-      <h1 style="text-align: center; margin-top: 10rem">
-        "In the midst of chaos, there is also opportunity."
-      </h1>
-      <h2 style="text-align: center; margin-bottom: 10rem">Sun Tzu</h2>
+      <div class="quote-block">
+        <blockquote cite="https://en.wikipedia.org/wiki/The_Art_of_War">
+          In the midst of chaos, there is also opportunity.
+        </blockquote>
+        <cite>Sun Tzu</cite>
+      </div>
 
       <section id="about">
-        <br />
         <h2>About Me</h2>
-        <br />
         <p>
-          I'm Zi, a tech focused engineer with over 4 years of experience 
-          leveraging my skills to multiply my impact in manufacturing industries.
+          I’ve always preferred a hands-on approach to engineering. My background started on the production floor in quality and manufacturing roles, where I learned how much the boots on the ground details actually matter. Having that foundation gives me a practical perspective on how things are built and how to address the friction that often exists between design and reality.
+
+
         </p>
-        <br />
+        <br>
         <p>
-          I've worked on projects ranging from simple configurations to whole system
-          migrations from start to finish. I pride myself in being adaptable and diversified
-          in skillset allowing me to contribute quickly and effectively. While I focus primarily on
-          software and data engineering, I'm actively exploring AI/ML engineering.
+          Right now I am focused on building technical solutions that I can own end to end. I enjoy taking complex, technical environments and building the data solutions required to make them more efficient. I take a lot of pride in being proficient across the stack and ensuring that the systems I build are practical enough to actually work in a real world setting.
         </p>
-        <br />
+        <br>
         <p>
-          Outside of tech, I also enjoy picking up skills such as wood/metal
-          working, anodizing, and soldering. I'm also a passionate automotive
-          enthusiast. I have owned many different cars and currently have a
-          fixation with Porsche and other German automotive manufacturers.
+          In my off hours I am usually still building or optimizing something. That usually looks like pushing the limits of 3D printing with engineering-grade materials, working on mechanical DIY projects, or refining strategy in a competitive game. I am a big believer that being a well-rounded engineer is about staying curious and never really stopping being a builder.
         </p>
       </section>
 
-      <section id="gallery">
+      <section id="gallery" aria-labelledby="gallery-heading">
+        <h2 id="gallery-heading">Off the clock</h2>
+        <p class="gallery-lead">
+          I also enjoy working on cars and other mechanical projects.
+        </p>
         <div class="slider">
-          <button class="slidePrev">&#10094;</button>
-          <button class="slideNext">&#10095;</button>
+          <button type="button" class="slidePrev" aria-label="Previous photo">
+            &#10094;
+          </button>
+          <button type="button" class="slideNext" aria-label="Next photo">
+            &#10095;
+          </button>
           <div class="slides">
-            <img src="Pictures/cayman.png" alt="Slide 1" class="slide" />
-            <img src="Pictures/porsches.png" alt="Slide 2" class="slide" />
-            <img src="Pictures/supra.png" alt="Slide 3" class="slide" />
-            <img src="Pictures/brz.jpeg" alt="Slide 4" class="slide" />
+            <img src="Pictures/cayman.png" alt="Porsche Cayman" class="slide" />
+            <img src="Pictures/porsches.png" alt="Porsche cars" class="slide" />
+            <img src="Pictures/supra.png" alt="Toyota Supra" class="slide" />
+            <img src="Pictures/brz.jpeg" alt="Subaru BRZ" class="slide" />
           </div>
         </div>
       </section>
 
       <section id="skills">
         <h2>Skills</h2>
-        <br />
         <div class="skillContainer">
           <div class="skill">
             <img src="Pictures/Java.png" alt="Java" class="skillIcon" />
@@ -174,7 +195,11 @@
             <span class="pill css">CSS</span>
           </div>
           <div class="skill">
-            <img src="Pictures/javascript.png"alt="JavaScript"class="skillIcon"/>
+            <img
+              src="Pictures/javascript.png"
+              alt="JavaScript"
+              class="skillIcon"
+            />
             <span class="pill js">JavaScript</span>
           </div>
           <div class="skill">
@@ -192,13 +217,12 @@
           <div class="skill">
             <img src="Pictures/spring.svg" alt="Spring" class="skillIcon" />
             <span class="pill spring">Spring</span>
-          </div>                              
+          </div>
         </div>
       </section>
 
       <section id="education">
         <h2>Education and Certifications</h2>
-        <br />
 
         <div class="educationContainer">
           <div class="educationItem">
@@ -214,13 +238,14 @@
         </div>
 
         <div class="certContainer">
-          <a href="Pictures/degree.png" target="_blank" class="skill">
+          <a href="Pictures/degree.png" target="_blank" rel="noopener noreferrer" class="skill">
             <img src="Pictures/wgu.png" alt="WGU" class="skillIcon" />
             <p>B.S. Software Engineering</p>
           </a>
           <a
             href="https://www.credly.com/badges/f0994fca-d01b-4f7a-840f-6e3a887b3f40/linked_in_profile"
             target="_blank"
+            rel="noopener noreferrer"
             class="skill"
           >
             <img
@@ -230,7 +255,7 @@
             />
             <p>AWS Cloud Practitioner</p>
           </a>
-          <a href="Pictures/ITIL.pdf" target="_blank" class="skill">
+          <a href="Pictures/ITIL.pdf" target="_blank" rel="noopener noreferrer" class="skill">
             <img
               src="Pictures/itil.png"
               alt="ITIL v4 Foundation"
@@ -241,6 +266,7 @@
           <a
             href="https://www.coursera.org/account/accomplishments/specialization/certificate/MY2D457U3TVZ"
             target="_blank"
+            rel="noopener noreferrer"
             class="skill"
           >
             <img
@@ -253,6 +279,7 @@
           <a
             href="https://www.coursera.org/account/accomplishments/specialization/certificate/GZUCL64L8PPH"
             target="_blank"
+            rel="noopener noreferrer"
             class="skill"
           >
             <img
@@ -267,30 +294,30 @@
     </main>
 
     <div id="scrollHint">
-      <div class="arrowBounce">↓</div>
+      <div class="arrowBounce" aria-hidden="true">↓</div>
       <p>Scroll for more</p>
     </div>
 
     <footer>
       <p>© 2026 Zi Feng. All rights reserved.</p>
       <div class="socialLinks">
-        <a href="https://www.linkedin.com/in/zifeng1" target="_blank"
+        <a href="https://www.linkedin.com/in/zifeng1" target="_blank" rel="noopener noreferrer"
           ><img
             src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png"
             alt="LinkedIn"
             class="socials"
-            id="linkedin"
+            id="linkedin-footer"
         /></a>
-        <a href="https://www.github.com/Zif0" target="_blank"
+        <a href="https://www.github.com/Zif0" target="_blank" rel="noopener noreferrer"
           ><img
             src="Pictures/github.png"
             alt="GitHub"
             class="socials"
-            id="github"
+            id="github-footer"
         /></a>
       </div>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script type="module" src="js/app.js"></script>
   </body>
 </html>

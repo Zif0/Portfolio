@@ -1,0 +1,38 @@
+:root {
+  --bg-deep: #121214;
+  --bg: #18181b;
+  --surface: #1f1f23;
+  --surface-elevated: #26262c;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-glow: rgba(59, 130, 246, 0.35);
+  --accent-warm: #fbbf24;
+  --accent-warm-dim: rgba(251, 191, 36, 0.12);
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lift: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Outfit", var(--font-sans);
+  --transition-fast: 0.15s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --header-blur: 12px;
+  --glass-bg: rgba(31, 31, 35, 0.52);
+  --glass-bg-hover: rgba(59, 130, 246, 0.18);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-border-hover: rgba(59, 130, 246, 0.45);
+  --glass-inner-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --glass-blur: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0.01ms;
+    --transition-smooth: 0.01ms;
+  }
+}
