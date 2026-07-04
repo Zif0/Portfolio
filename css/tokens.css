@@ -62,6 +62,7 @@
   --sidebar-collapsed-w: 76px;
   --content-max: 1080px;
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --mobilebar-h: 4.0625rem;
 }
 
 /* Registered so the accent color animates between sections. */

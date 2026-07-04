@@ -29,6 +29,7 @@
 
   .sidebar,
   body.is-collapsed .sidebar {
+    top: var(--mobilebar-h);
     width: min(84vw, 320px);
     transform: translateX(-100%);
     box-shadow: var(--shadow-lg);
@@ -36,10 +37,14 @@
   body.drawer-open .sidebar {
     transform: translateX(0);
   }
+  /* lock the page behind the scrim so the drawer doesn't scroll-chain into it */
+  body.drawer-open {
+    overflow: hidden;
+  }
 
   /* neutralize desktop collapse inside the drawer */
   .sidebar .sidebar__top {
-    justify-content: flex-end;
+    display: none;
   }
   .sidebar .nav__label {
     display: inline;
@@ -58,11 +63,12 @@
   .shell,
   body.is-collapsed .shell {
     margin-left: 0;
-    padding-top: 3.75rem;
+    padding-top: var(--mobilebar-h);
   }
 
   .section--hero {
-    min-height: auto;
+    min-height: calc(100vh - var(--mobilebar-h));
+    min-height: calc(100svh - var(--mobilebar-h));
     padding-top: 2rem;
   }
 
@@ -84,6 +90,14 @@
   .proj:nth-child(even) .proj__content,
   .proj:nth-child(even) .proj__media {
     order: 0;
+  }
+  /* desktop bleeds media toward the outer edge, away from the centered
+     spine; that trick doesn't apply once the spine moves to the left.
+     (selectors must match sections.css specificity to actually win) */
+  .proj:nth-child(odd) .proj__media,
+  .proj:nth-child(even) .proj__media {
+    width: 100%;
+    margin-left: 0;
   }
 }
 
