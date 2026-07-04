@@ -1,0 +1,124 @@
+@media (max-width: 1200px) {
+  :root {
+    --sidebar-w: 236px;
+  }
+  .skillgrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .about,
+  .creds,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+  .about__panel {
+    position: static;
+  }
+  .skilllists {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- Drawer mode ---------- */
+@media (max-width: 960px) {
+  .mobilebar {
+    display: flex;
+  }
+
+  .sidebar,
+  body.is-collapsed .sidebar {
+    width: min(84vw, 320px);
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+  }
+  body.drawer-open .sidebar {
+    transform: translateX(0);
+  }
+
+  /* neutralize desktop collapse inside the drawer */
+  .sidebar .sidebar__top {
+    justify-content: flex-end;
+  }
+  .sidebar .nav__label {
+    display: inline;
+  }
+  .sidebar .nav__link {
+    justify-content: flex-start;
+    padding: 0.62rem 0.85rem;
+  }
+  .sidebar .sidebar__socials {
+    flex-direction: row;
+  }
+  .collapse-btn {
+    display: none;
+  }
+
+  .shell,
+  body.is-collapsed .shell {
+    margin-left: 0;
+    padding-top: 3.75rem;
+  }
+
+  .section--hero {
+    min-height: auto;
+    padding-top: 2rem;
+  }
+
+  /* projects timeline collapses to a single left-aligned spine */
+  .timeline--projects::before {
+    left: 6px;
+    transform: none;
+  }
+  .proj {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-left: 1.9rem;
+  }
+  .proj__node {
+    left: 6px;
+    top: 6px;
+    transform: none;
+  }
+  .proj:nth-child(even) .proj__content,
+  .proj:nth-child(even) .proj__media {
+    order: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+  .skilllists {
+    grid-template-columns: 1fr;
+  }
+  .section-head {
+    gap: 0.9rem;
+  }
+  .footer {
+    justify-content: center;
+    text-align: center;
+  }
+  .resume__bar {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .skillgrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .certgrid {
+    grid-template-columns: 1fr;
+  }
+  .tl__card {
+    padding: 1.2rem 1.15rem;
+  }
+  .proj__meta {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}

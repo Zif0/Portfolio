@@ -4,308 +4,970 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Zi Feng - Portfolio Website" />
-    <title>Zi Feng | Portfolio</title>
+    <meta
+      name="description"
+      content="Zi Feng is a Backend Software Engineer at Amazon and founder of Intsu Studios, building data platforms, backend systems, and full stack products."
+    />
+    <meta name="theme-color" content="#0a0a0b" />
+    <title>Zi Feng | Backend Software Engineer</title>
 
-    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="Pictures/logo.png" />
+    <link rel="icon" href="assets/logo.png" />
+
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
   </head>
+
   <body>
-    <header>
-      <nav class="navbar" aria-label="Main">
-        <a href="/" aria-label="Home"
-          ><img src="Pictures/logo.png" id="logo" alt=""
-        /></a>
+    <a class="skip-link" href="#home">Skip to content</a>
+
+    <div class="bg-layer" aria-hidden="true">
+      <div class="bg-grid"></div>
+    </div>
+
+    <div class="scroll-bar" aria-hidden="true"><span id="scrollBarFill"></span></div>
+
+    <div class="mobilebar">
+      <a href="#home" class="mobilebar__brand" aria-label="Zi Feng, home">
+        <span class="monogram">ZF</span>
+        <span class="mobilebar__name">Zi Feng</span>
+      </a>
+      <button
+        class="mobilebar__toggle"
+        id="drawerToggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="sidebar"
+        aria-label="Open navigation"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="scrim" id="scrim"></div>
+
+    <aside class="sidebar" id="sidebar" aria-label="Section navigation">
+      <div class="sidebar__top">
         <button
-          class="hamburger"
-          id="hamburger"
+          class="collapse-btn"
+          id="collapseBtn"
           type="button"
-          aria-expanded="false"
-          aria-controls="navMenu"
-          aria-label="Open menu"
+          aria-label="Collapse navigation"
         >
-          &#9776;
+          <span class="collapse-btn__chevron" aria-hidden="true"></span>
         </button>
-        <div class="mobileOverlay"></div>
-        <ul class="navLinks" id="navMenu">
-          <li class="navItem"><a href="/">Home</a></li>
-          <li class="navItem"><a href="/projects">Projects</a></li>
-          <li class="navItem"><a href="/resume">Resume</a></li>
-          <li class="navItem"><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main class="container">
-      <section id="welcome-message">
-        <div class="welcome-card">
-          <div class="welcome-text">
-            <h1>Hi, I'm Zi.</h1>
-            <p class="tagline">
-              <strong>Data Engineer</strong> at Amazon · Founder of
-              <strong>Intsu</strong>
-            </p>
-          </div>
-          <div class="socialLinks">
-            <a href="https://www.linkedin.com/in/zifeng1" target="_blank" rel="noopener noreferrer"
-              ><img
-                src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png"
-                alt="LinkedIn"
-                class="socials"
-                id="linkedin"
-            /></a>
-            <a href="https://www.github.com/Zif0" target="_blank" rel="noopener noreferrer"
-              ><img
-                src="Pictures/github.png"
-                alt="GitHub"
-                class="socials"
-                id="github"
-            /></a>
-          </div>
-          <div class="separator" aria-hidden="true"></div>
-        </div>
-      </section>
-
-      <section id="project-carousel" aria-labelledby="projects-heading">
-        <h2 id="projects-heading">Projects</h2>
-        <div class="carousel-wrapper">
-          <button type="button" class="slidePrev" aria-label="Previous projects">
-            &#10094;
-          </button>
-          <div class="carousel-track">
-            <a href="/projects/index.html#intsu" class="project-card">
-              <img
-                src="Pictures/Intsu Logo.png"
-                alt="Fin App Logo"
-                class="project-img"
-              />
-              <div class="project-info">
-                <h3>Intsu Studios</h3>
-                <p class="tech-stack">Business</p>
-              </div>
-              <div class="project-hover-description">
-                <p>My passion project!</p>
-              </div>
-            </a>
-
-            <a href="/projects/index.html#siu" class="project-card">
-              <img
-                src="Pictures/Siu White Logo.png"
-                alt="Siu Restaurant Logo"
-                class="project-img"
-              />
-              <div class="project-info">
-                <h3>Siu Restaurant Website</h3>
-                <p class="tech-stack">HTML - CSS - JavaScript</p>
-              </div>
-              <div class="project-hover-description">
-                <p>Official restaurant website for Siu KBBQ.</p>
-              </div>
-            </a>
-
-            <a href="/projects/index.html#vac-track" class="project-card">
-              <img
-                src="Pictures/Vac Track Logo.png"
-                alt="Vac-Track App Logo"
-                class="project-img"
-              />
-              <div class="project-info">
-                <h3>Vac Track</h3>
-                <p class="tech-stack">Android Studio - Java- XML - Room</p>
-              </div>
-              <div class="project-hover-description">
-                <p>App to help users track and manage their vacations.</p>
-              </div>
-            </a>
-          </div>
-          <button type="button" class="slideNext" aria-label="Next projects">
-            &#10095;
-          </button>
-        </div>
-      </section>
-
-      <div class="quote-block">
-        <blockquote cite="https://en.wikipedia.org/wiki/The_Art_of_War">
-          In the midst of chaos, there is also opportunity.
-        </blockquote>
-        <cite>Sun Tzu</cite>
       </div>
 
-      <section id="about">
-        <h2>About Me</h2>
-        <p>
-          I’ve always preferred a hands-on approach to engineering. My background started on the production floor in quality and manufacturing roles, where I learned how much the boots on the ground details actually matter. Having that foundation gives me a practical perspective on how things are built and how to address the friction that often exists between design and reality.
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav__list">
+          <li>
+            <a class="nav__link" href="#home" data-nav="home">
+              <span class="nav__index mono">01</span>
+              <span class="nav__label">Home</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav__link" href="#skills" data-nav="skills">
+              <span class="nav__index mono">02</span>
+              <span class="nav__label">Skills</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav__link" href="#experience" data-nav="experience">
+              <span class="nav__index mono">03</span>
+              <span class="nav__label">Experience</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav__link" href="#projects" data-nav="projects">
+              <span class="nav__index mono">04</span>
+              <span class="nav__label">Projects</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav__link" href="#credentials" data-nav="credentials">
+              <span class="nav__index mono">05</span>
+              <span class="nav__label">Credentials</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav__link" href="#about" data-nav="about">
+              <span class="nav__index mono">06</span>
+              <span class="nav__label">About</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav__link" href="#resume" data-nav="resume">
+              <span class="nav__index mono">07</span>
+              <span class="nav__label">Resume</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav__link" href="#contact" data-nav="contact">
+              <span class="nav__index mono">08</span>
+              <span class="nav__label">Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-
-        </p>
-        <br>
-        <p>
-          Right now I am focused on building technical solutions that I can own end to end. I enjoy taking complex, technical environments and building the data solutions required to make them more efficient. I take a lot of pride in being proficient across the stack and ensuring that the systems I build are practical enough to actually work in a real world setting.
-        </p>
-        <br>
-        <p>
-          In my off hours I am usually still building or optimizing something. That usually looks like pushing the limits of 3D printing with engineering-grade materials, working on mechanical DIY projects, or refining strategy in a competitive game. I am a big believer that being a well-rounded engineer is about staying curious and never really stopping being a builder.
-        </p>
-      </section>
-
-      <section id="gallery" aria-labelledby="gallery-heading">
-        <h2 id="gallery-heading">Off the clock</h2>
-        <p class="gallery-lead">
-          I also enjoy working on cars and other mechanical projects.
-        </p>
-        <div class="slider">
-          <button type="button" class="slidePrev" aria-label="Previous photo">
-            &#10094;
-          </button>
-          <button type="button" class="slideNext" aria-label="Next photo">
-            &#10095;
-          </button>
-          <div class="slides">
-            <img src="Pictures/cayman.png" alt="Porsche Cayman" class="slide" />
-            <img src="Pictures/porsches.png" alt="Porsche cars" class="slide" />
-            <img src="Pictures/supra.png" alt="Toyota Supra" class="slide" />
-            <img src="Pictures/brz.jpeg" alt="Subaru BRZ" class="slide" />
-          </div>
-        </div>
-      </section>
-
-      <section id="skills">
-        <h2>Skills</h2>
-        <div class="skillContainer">
-          <div class="skill">
-            <img src="Pictures/Java.png" alt="Java" class="skillIcon" />
-            <span class="pill java">Java</span>
-          </div>
-          <div class="skill">
-            <img src="Pictures/python.png" alt="Python" class="skillIcon" />
-            <span class="pill python">Python</span>
-          </div>
-          <div class="skill">
-            <img src="Pictures/html.png" alt="HTML" class="skillIcon" />
-            <span class="pill html">HTML</span>
-          </div>
-          <div class="skill">
-            <img src="Pictures/css.png" alt="CSS" class="skillIcon" />
-            <span class="pill css">CSS</span>
-          </div>
-          <div class="skill">
-            <img
-              src="Pictures/javascript.png"
-              alt="JavaScript"
-              class="skillIcon"
-            />
-            <span class="pill js">JavaScript</span>
-          </div>
-          <div class="skill">
-            <img src="Pictures/sql.png" alt="SQL" class="skillIcon" />
-            <span class="pill sql">SQL</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="education">
-        <h2>Education and Certifications</h2>
-
-        <div class="educationContainer">
-          <div class="educationItem">
-            <h3>B.S. in Software Engineering - Western Governors University</h3>
-            <p class="eduDate">April 2023 - May 2025</p>
-          </div>
-          <div class="educationItem">
-            <h3>
-              General Education/Transfer - Truckee Meadows Community College
-            </h3>
-            <p class="eduDate">August 2019 - August 2021</p>
-          </div>
-        </div>
-
-        <div class="certContainer">
-          <a href="Pictures/degree.png" target="_blank" rel="noopener noreferrer" class="skill">
-            <img src="Pictures/wgu.png" alt="WGU" class="skillIcon" />
-            <p>B.S. Software Engineering</p>
-          </a>
+      <div class="sidebar__bottom">
+        <div class="sidebar__socials">
           <a
-            href="https://www.credly.com/badges/f0994fca-d01b-4f7a-840f-6e3a887b3f40/linked_in_profile"
+            href="https://www.linkedin.com/in/zifeng1"
             target="_blank"
             rel="noopener noreferrer"
-            class="skill"
+            class="iconbtn"
+            aria-label="LinkedIn"
           >
-            <img
-              src="Pictures/aws.png"
-              alt="AWS Cloud Practitioner"
-              class="skillIcon"
-            />
-            <p>AWS Cloud Practitioner</p>
-          </a>
-          <a href="Pictures/ITIL.pdf" target="_blank" rel="noopener noreferrer" class="skill">
-            <img
-              src="Pictures/itil.png"
-              alt="ITIL v4 Foundation"
-              class="skillIcon"
-            />
-            <p>ITIL v4 Foundation</p>
-          </a>
-          <a
-            href="https://www.coursera.org/account/accomplishments/specialization/certificate/MY2D457U3TVZ"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="skill"
-          >
-            <img
-              src="Pictures/gpm.png"
-              alt="Google Project Management"
-              class="skillIcon"
-            />
-            <p>Google Project Management</p>
+            <svg
+              class="iconbtn__svg"
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                fill="currentColor"
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"
+              />
+            </svg>
           </a>
           <a
-            href="https://www.coursera.org/account/accomplishments/specialization/certificate/GZUCL64L8PPH"
+            href="https://www.github.com/Zif0"
             target="_blank"
             rel="noopener noreferrer"
-            class="skill"
+            class="iconbtn"
+            aria-label="GitHub"
           >
-            <img
-              src="Pictures/gis.png"
-              alt="Google IT Support"
-              class="skillIcon"
-            />
-            <p>Google IT Support</p>
+            <img class="iconbtn__img" src="assets/github.png" alt="" />
           </a>
         </div>
+      </div>
+    </aside>
+
+    <main class="shell" id="main">
+      <section
+        id="home"
+        class="section section--hero"
+        data-section="home"
+        data-accent="blue"
+        aria-labelledby="home-title"
+      >
+        <div class="hero hero--simple">
+          <p class="eyebrow mono" data-reveal>
+            <span class="eyebrow__dot"></span> Portfolio / Redmond, WA
+          </p>
+          <h1 id="home-title" class="hero__name" data-reveal>Zi&nbsp;Feng</h1>
+          <p class="hero__role" data-reveal>Backend Software Engineer</p>
+        </div>
+
+        <a href="#skills" class="scroll-cue" aria-label="Scroll to Skills">
+          <span class="scroll-cue__txt mono">Scroll</span>
+          <span class="scroll-cue__line" aria-hidden="true"></span>
+        </a>
+      </section>
+
+      <section
+        id="skills"
+        class="section"
+        data-section="skills"
+        data-accent="cyan"
+        aria-labelledby="skills-title"
+      >
+        <header class="section-head" data-reveal>
+          <span class="section-head__index mono">02</span>
+          <div>
+            <h2 id="skills-title" class="section-head__title">Skills</h2>
+            <p class="section-head__sub">The tools I reach for.</p>
+          </div>
+        </header>
+
+        <div class="skillgrid" data-stagger>
+          <div class="skillcard">
+            <img src="assets/python.png" alt="Python" class="skillcard__icon" loading="lazy" />
+            <span class="skillcard__name">Python</span>
+          </div>
+          <div class="skillcard">
+            <img src="assets/Java.png" alt="Java" class="skillcard__icon" loading="lazy" />
+            <span class="skillcard__name">Java</span>
+          </div>
+          <div class="skillcard">
+            <img src="assets/javascript.png" alt="JavaScript" class="skillcard__icon" loading="lazy" />
+            <span class="skillcard__name">JavaScript</span>
+          </div>
+          <div class="skillcard">
+            <img src="assets/sql.png" alt="SQL" class="skillcard__icon" loading="lazy" />
+            <span class="skillcard__name">SQL</span>
+          </div>
+          <div class="skillcard">
+            <img src="assets/html.png" alt="HTML" class="skillcard__icon" loading="lazy" />
+            <span class="skillcard__name">HTML</span>
+          </div>
+          <div class="skillcard">
+            <img src="assets/css.png" alt="CSS" class="skillcard__icon" loading="lazy" />
+            <span class="skillcard__name">CSS</span>
+          </div>
+        </div>
+
+        <div class="skilllists">
+          <div class="skilllist" data-reveal>
+            <h3 class="skilllist__title mono">// LANGUAGES</h3>
+            <ul class="skilllist__items">
+              <li>Python</li>
+              <li>Java</li>
+              <li>JavaScript</li>
+              <li>SQL (Postgres, Trino, Spark)</li>
+            </ul>
+          </div>
+          <div class="skilllist" data-reveal>
+            <h3 class="skilllist__title mono">// BACKEND &amp; DATA</h3>
+            <ul class="skilllist__items">
+              <li>Data architecture and modeling</li>
+              <li>REST APIs</li>
+              <li>Event driven systems</li>
+              <li>Microservices</li>
+              <li>Git</li>
+              <li>pytest</li>
+              <li>mypy</li>
+            </ul>
+          </div>
+          <div class="skilllist" data-reveal>
+            <h3 class="skilllist__title mono">// CLOUD &amp; AWS</h3>
+            <ul class="skilllist__items">
+              <li>Lambda</li>
+              <li>Glue</li>
+              <li>Kinesis</li>
+              <li>DynamoDB</li>
+              <li>S3</li>
+              <li>Athena</li>
+              <li>Redshift</li>
+              <li>CloudWatch</li>
+              <li>Bedrock</li>
+              <li>CI/CD</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <aside class="interstitial" data-accent="amber" aria-label="Quote">
+        <figure class="quote" data-reveal>
+          <blockquote cite="https://en.wikipedia.org/wiki/The_Art_of_War">
+            In the midst of chaos, there is also opportunity.
+          </blockquote>
+          <figcaption class="quote__cite mono">Sun Tzu</figcaption>
+        </figure>
+      </aside>
+
+      <section
+        id="experience"
+        class="section"
+        data-section="experience"
+        data-accent="amber"
+        aria-labelledby="experience-title"
+      >
+        <header class="section-head" data-reveal>
+          <span class="section-head__index mono">03</span>
+          <div>
+            <h2 id="experience-title" class="section-head__title">Experience</h2>
+            <p class="section-head__sub">The what, where, when, and why of my work.</p>
+          </div>
+        </header>
+
+        <ol class="timeline timeline--roles">
+          <li class="tl" data-reveal>
+            <span class="tl__node" aria-hidden="true"></span>
+            <div class="tl__card">
+              <div class="tl__head">
+                <div>
+                  <h3 class="tl__title">Data Engineer</h3>
+                  <p class="tl__org">Amazon <span class="tl__place">Redmond, WA</span></p>
+                </div>
+                <span class="tl__date mono">Aug 2025 to Present</span>
+              </div>
+              <ul class="tl__points">
+                <li>
+                  Architected Amazon LEO's first unified statistical process
+                  control data platform on AWS and Grafana, owning 12 Glue
+                  pipelines processing 50,000+ manufacturing records daily across
+                  7 cross functional teams.
+                </li>
+                <li>
+                  Built real time anomaly detection and alerting across 8,000+
+                  parameters using AWS Lambda, DynamoDB, and Kinesis, eliminating
+                  continuous manual monitoring and improving production yield by
+                  10%.
+                </li>
+                <li>
+                  Released a Lambda REST API detecting Nelson Rules and relevant
+                  statistical patterns, enabling other teams to self serve
+                  integration and saving roughly a day of onboarding each.
+                </li>
+                <li>
+                  Built AI driven risk models using AWS Bedrock that automate
+                  fishbone diagrams, 5 Why root cause analysis, and historical
+                  issue research, reducing initial alert investigation from an
+                  hour to a 5 minute read.
+                </li>
+                <li>
+                  Engineered scalable ETL architecture, a standardized data
+                  model, and distributed systems practices, improving refresh
+                  performance by 90% and cutting analytics development cycles from
+                  3 weeks to 1 day.
+                </li>
+                <li>
+                  Authored organization wide SPC policy establishing process
+                  monitoring, root cause analysis, and continuous improvement
+                  standards supporting AS9100 compliance across 6 facilities.
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="tl" data-reveal>
+            <span class="tl__node" aria-hidden="true"></span>
+            <div class="tl__card">
+              <div class="tl__head">
+                <div>
+                  <h3 class="tl__title">Software Engineer</h3>
+                  <p class="tl__org">Intsu Studios <span class="tl__place">Founder</span></p>
+                </div>
+                <span class="tl__date mono">May 2025 to Present</span>
+              </div>
+              <ul class="tl__points">
+                <li>
+                  Founded Fin, a free, privacy first personal finance and career
+                  tracker built as a comprehensive alternative to paid tools and
+                  subscriptions.
+                </li>
+                <li>
+                  Designed and launched a custom restaurant website, driving a
+                  20% increase in customer conversion.
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="tl" data-reveal>
+            <span class="tl__node" aria-hidden="true"></span>
+            <div class="tl__card">
+              <div class="tl__head">
+                <div>
+                  <h3 class="tl__title">Systems Engineer</h3>
+                  <p class="tl__org">Redwood Materials</p>
+                </div>
+                <span class="tl__date mono">Aug 2024 to Aug 2025</span>
+              </div>
+              <ul class="tl__points">
+                <li>
+                  Redesigned the incident reporting and problem solving
+                  application, cutting operational waste by $50,000+ annually.
+                </li>
+                <li>
+                  Built and contributed to internal engineering tools in Python,
+                  Java, React, and FastAPI, improving lab, chemical, and materials
+                  workflows and saving $35,000+ annually.
+                </li>
+                <li>
+                  Designed dashboards tracking 2,000+ samples, lab results, and
+                  material flow for engineering departments, saving $20,000+
+                  annually.
+                </li>
+                <li>
+                  Automated manual tasks using Python and Power Automate,
+                  improving operational efficiency by 15%.
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section
+        id="projects"
+        class="section"
+        data-section="projects"
+        data-accent="blue"
+        aria-labelledby="projects-title"
+      >
+        <header class="section-head" data-reveal>
+          <span class="section-head__index mono">04</span>
+          <div>
+            <h2 id="projects-title" class="section-head__title">Projects</h2>
+            <p class="section-head__sub">Things I have shipped and the stories behind them, newest first.</p>
+          </div>
+        </header>
+
+        <div class="timeline timeline--projects">
+          <article class="proj" id="fin" data-reveal>
+            <span class="proj__node" aria-hidden="true"></span>
+            <div class="proj__content">
+              <div class="proj__meta">
+                <span class="proj__date mono">Jun 2026</span>
+                <span class="proj__kicker mono">Founder build</span>
+              </div>
+              <h3 class="proj__title">Fin</h3>
+              <div class="tags">
+                <span class="pill react">React</span>
+                <span class="pill">Tailwind</span>
+                <span class="pill">Vite</span>
+                <span class="pill">Supabase</span>
+                <span class="pill">IndexedDB</span>
+              </div>
+              <p>
+                A free, privacy first personal finance and career tracker built
+                as a full alternative to paid subscription tools. I architected a
+                two mode system supporting both Supabase cloud accounts and a
+                decentralized, local only IndexedDB experience, delivering a
+                near identical experience while giving users full control over
+                how their data is handled.
+              </p>
+              <ul class="proj__features">
+                <li>Cloud and local only accounts from one codebase</li>
+                <li>Offline first data with IndexedDB</li>
+                <li>Finance and career tracking in one place</li>
+              </ul>
+              <div class="proj__links">
+                <a
+                  href="https://fin-intsu.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--sm btn--primary"
+                  >Live site</a
+                >
+              </div>
+            </div>
+            <div class="proj__media">
+              <div class="media-switch" role="tablist" aria-label="Fin screenshot view">
+                <button type="button" class="media-switch__btn is-active" data-view="desktop" role="tab" aria-selected="true">Desktop</button>
+                <button type="button" class="media-switch__btn" data-view="mobile" role="tab" aria-selected="false">Mobile</button>
+              </div>
+              <div class="media-panel is-active" data-panel="desktop">
+                <div class="slider" data-slider aria-roledescription="carousel" aria-label="Fin desktop screenshots">
+                  <div class="slides">
+                    <img src="assets/fin-desktop-home.png" class="slide" alt="Fin overview dashboard" loading="lazy" decoding="async" />
+                    <img src="assets/fin-desktop-assets.png" class="slide" alt="Fin assets and allocation" loading="lazy" decoding="async" />
+                    <img src="assets/fin-desktop-debt.png" class="slide" alt="Fin debt tracking" loading="lazy" decoding="async" />
+                    <img src="assets/fin-desktop-spending.png" class="slide" alt="Fin spending breakdown" loading="lazy" decoding="async" />
+                  </div>
+                  <button type="button" class="slidePrev" aria-label="Previous screenshot">&#10094;</button>
+                  <button type="button" class="slideNext" aria-label="Next screenshot">&#10095;</button>
+                  <div class="slider__dots" aria-hidden="true"></div>
+                </div>
+              </div>
+              <div class="media-panel" data-panel="mobile" hidden>
+                <div class="slider slider--tall" data-slider aria-roledescription="carousel" aria-label="Fin mobile screenshots">
+                  <div class="slides">
+                    <img src="assets/fin-mobile-home.png" class="slide" alt="Fin overview on mobile" loading="lazy" decoding="async" />
+                    <img src="assets/fin-mobile-assets.png" class="slide" alt="Fin assets on mobile" loading="lazy" decoding="async" />
+                    <img src="assets/fin-mobile-debt.png" class="slide" alt="Fin debt tracking on mobile" loading="lazy" decoding="async" />
+                    <img src="assets/fin-mobile-spending.png" class="slide" alt="Fin spending on mobile" loading="lazy" decoding="async" />
+                  </div>
+                  <button type="button" class="slidePrev" aria-label="Previous screenshot">&#10094;</button>
+                  <button type="button" class="slideNext" aria-label="Next screenshot">&#10095;</button>
+                  <div class="slider__dots" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj" id="siu" data-reveal>
+            <span class="proj__node" aria-hidden="true"></span>
+            <div class="proj__content">
+              <div class="proj__meta">
+                <span class="proj__date mono">May 2025</span>
+                <span class="proj__kicker mono">Client work</span>
+              </div>
+              <h3 class="proj__title">Siu Korean BBQ</h3>
+              <div class="tags">
+                <span class="pill html">HTML</span>
+                <span class="pill css">CSS</span>
+                <span class="pill js">JavaScript</span>
+              </div>
+              <p>
+                A fully custom website for the owners of Siu KBBQ, built to give a
+                hidden gem the reach it deserved. Before this the restaurant had
+                no site to introduce its menu or story, so I built one to bring in
+                new customers and drive traffic, which lifted customer conversion
+                by 20%.
+              </p>
+              <ul class="proj__features">
+                <li>Custom animations and interactive menus</li>
+                <li>Google Maps integration</li>
+                <li>Modern, responsive multi page layout</li>
+              </ul>
+              <div class="proj__links">
+                <a
+                  href="https://siukoreanbbq.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--sm btn--primary"
+                  >Live site</a
+                >
+                <a
+                  href="https://github.com/Zif0/Siu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--sm btn--ghost"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+            <div class="proj__media">
+              <div class="media-switch" role="tablist" aria-label="Siu screenshot view">
+                <button type="button" class="media-switch__btn is-active" data-view="desktop" role="tab" aria-selected="true">Desktop</button>
+                <button type="button" class="media-switch__btn" data-view="mobile" role="tab" aria-selected="false">Mobile</button>
+              </div>
+              <div class="media-panel is-active" data-panel="desktop">
+                <div class="slider" data-slider aria-roledescription="carousel" aria-label="Siu website desktop screenshots">
+                  <div class="slides">
+                    <img src="assets/siu-desktop-home.png" class="slide" alt="Siu website homepage" loading="lazy" decoding="async" />
+                    <img src="assets/siu-desktop-ayce.png" class="slide" alt="Siu all you can eat menu page" loading="lazy" decoding="async" />
+                    <img src="assets/siu-desktop-express.png" class="slide" alt="Siu express menu page" loading="lazy" decoding="async" />
+                  </div>
+                  <button type="button" class="slidePrev" aria-label="Previous screenshot">&#10094;</button>
+                  <button type="button" class="slideNext" aria-label="Next screenshot">&#10095;</button>
+                  <div class="slider__dots" aria-hidden="true"></div>
+                </div>
+              </div>
+              <div class="media-panel" data-panel="mobile" hidden>
+                <div class="slider slider--tall" data-slider aria-roledescription="carousel" aria-label="Siu website mobile screenshots">
+                  <div class="slides">
+                    <img src="assets/siu-mobile-home.png" class="slide" alt="Siu website homepage on mobile" loading="lazy" decoding="async" />
+                    <img src="assets/siu-mobile-ayce.png" class="slide" alt="Siu all you can eat menu on mobile" loading="lazy" decoding="async" />
+                    <img src="assets/siu-mobile-express.png" class="slide" alt="Siu express menu on mobile" loading="lazy" decoding="async" />
+                    <img src="assets/siu-mobile-about.png" class="slide" alt="Siu about us page on mobile" loading="lazy" decoding="async" />
+                  </div>
+                  <button type="button" class="slidePrev" aria-label="Previous screenshot">&#10094;</button>
+                  <button type="button" class="slideNext" aria-label="Next screenshot">&#10095;</button>
+                  <div class="slider__dots" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj" id="intsu" data-reveal>
+            <span class="proj__node" aria-hidden="true"></span>
+            <div class="proj__content">
+              <div class="proj__meta">
+                <span class="proj__date mono">May 2025</span>
+                <span class="proj__kicker mono">R and D</span>
+              </div>
+              <h3 class="proj__title">Intsu Studios</h3>
+              <div class="tags">
+                <span class="pill business">Business</span>
+              </div>
+              <p>
+                I founded Intsu with a single goal, to turn my interests and
+                hobbies into something more meaningful. Officializing my work as a business.
+              </p>
+              <ul class="proj__features">
+                <li>Freelance Software Engineering</li>
+                <li>Content creation across multiple platforms</li>
+                <li>Handmade clothing and accessories</li>
+                <li>3D printed manufacturing</li>
+              </ul>
+              <div class="proj__links">
+                <span class="tag-note mono">Since May 2025</span>
+              </div>
+            </div>
+            <div class="proj__media">
+              <div class="logo-panel logo-panel--intsu">
+                <img
+                  src="assets/Intsu Logo.png"
+                  alt="Intsu Studios logo"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </article>
+
+          <article class="proj" id="vac-track" data-reveal>
+            <span class="proj__node" aria-hidden="true"></span>
+            <div class="proj__content">
+              <div class="proj__meta">
+                <span class="proj__date mono">Apr 2025</span>
+                <span class="proj__kicker mono">Android app</span>
+              </div>
+              <h3 class="proj__title">Vac Track</h3>
+              <div class="tags">
+                <span class="pill java">Java</span>
+                <span class="pill xml">XML</span>
+                <span class="pill room">Room</span>
+              </div>
+              <p>
+                An Android app that helps users manage vacations and excursions in
+                a streamlined, offline environment. It uses a clean UI, industry
+                standard security practices like input validation, and Room to
+                keep dependencies minimal.
+              </p>
+              <ul class="proj__features">
+                <li>Vacation and excursion management</li>
+                <li>Notifications and alerts</li>
+                <li>Data sharing, search, filter, and report generation</li>
+              </ul>
+              <div class="proj__links">
+                <a
+                  href="https://zif0.itch.io/vac-track"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--sm btn--primary"
+                  >Itch.io</a
+                >
+                <a
+                  href="https://github.com/Zif0/Vac-track"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--sm btn--ghost"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+            <div class="proj__media">
+              <div class="slider slider--tall" data-slider aria-roledescription="carousel" aria-label="Vac Track app screenshots">
+                <div class="slides">
+                  <img src="assets/VT Login.png" class="slide" alt="Vac Track login screen" loading="lazy" decoding="async" />
+                  <img src="assets/VT Home.png" class="slide" alt="Vac Track home screen" loading="lazy" decoding="async" />
+                  <img src="assets/VT Add.png" class="slide" alt="Vac Track add vacation" loading="lazy" decoding="async" />
+                  <img src="assets/VT Edit.png" class="slide" alt="Vac Track edit vacation" loading="lazy" decoding="async" />
+                  <img src="assets/VT Excursion.png" class="slide" alt="Vac Track excursion" loading="lazy" decoding="async" />
+                  <img src="assets/VT Edit 2.png" class="slide" alt="Vac Track edit details" loading="lazy" decoding="async" />
+                  <img src="assets/VT Select.png" class="slide" alt="Vac Track selection" loading="lazy" decoding="async" />
+                  <img src="assets/VT Share.png" class="slide" alt="Vac Track share" loading="lazy" decoding="async" />
+                  <img src="assets/VT Report.png" class="slide" alt="Vac Track report" loading="lazy" decoding="async" />
+                </div>
+                <button type="button" class="slidePrev" aria-label="Previous screenshot">&#10094;</button>
+                <button type="button" class="slideNext" aria-label="Next screenshot">&#10095;</button>
+                <div class="slider__dots" aria-hidden="true"></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="credentials"
+        class="section"
+        data-section="credentials"
+        data-accent="amber"
+        aria-labelledby="credentials-title"
+      >
+        <header class="section-head" data-reveal>
+          <span class="section-head__index mono">05</span>
+          <div>
+            <h2 id="credentials-title" class="section-head__title">Credentials</h2>
+            <p class="section-head__sub">Education and certifications.</p>
+          </div>
+        </header>
+
+        <div class="creds">
+          <div class="creds__edu">
+            <h3 class="creds__label mono">// EDUCATION</h3>
+            <ol class="timeline timeline--edu">
+              <li class="tl tl--compact" data-reveal>
+                <span class="tl__node" aria-hidden="true"></span>
+                <a
+                  class="tl__card tl__card--link"
+                  href="assets/degree.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View B.S. Software Engineering degree, Western Governors University"
+                >
+                  <div class="tl__head">
+                    <div class="tl__head-main">
+                      <img src="assets/wgu.png" alt="" class="tl__logo" loading="lazy" />
+                      <div>
+                        <h4 class="tl__title">B.S. Software Engineering</h4>
+                        <p class="tl__org">Western Governors University</p>
+                      </div>
+                    </div>
+                    <span class="tl__date mono">Apr 2023 to May 2025</span>
+                  </div>
+                </a>
+              </li>
+              <li class="tl tl--compact" data-reveal>
+                <span class="tl__node" aria-hidden="true"></span>
+                <div class="tl__card">
+                  <div class="tl__head">
+                    <div>
+                      <h4 class="tl__title">General Education and Transfer</h4>
+                      <p class="tl__org">Truckee Meadows Community College</p>
+                    </div>
+                    <span class="tl__date mono">Aug 2019 to Aug 2021</span>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="creds__certs">
+            <h3 class="creds__label mono">// CERTIFICATIONS</h3>
+            <div class="certgrid" data-stagger>
+              <a
+                href="https://www.credly.com/badges/f0994fca-d01b-4f7a-840f-6e3a887b3f40/linked_in_profile"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cert"
+              >
+                <img src="assets/aws.png" alt="AWS Cloud Practitioner" class="cert__icon" loading="lazy" />
+                <span class="cert__name">AWS Cloud Practitioner</span>
+              </a>
+              <a href="assets/ITIL.pdf" target="_blank" rel="noopener noreferrer" class="cert">
+                <img src="assets/itil.png" alt="ITIL v4 Foundation" class="cert__icon" loading="lazy" />
+                <span class="cert__name">ITIL v4 Foundation</span>
+              </a>
+              <a
+                href="https://www.coursera.org/account/accomplishments/specialization/certificate/MY2D457U3TVZ"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cert"
+              >
+                <img src="assets/gpm.png" alt="Google Project Management" class="cert__icon" loading="lazy" />
+                <span class="cert__name">Google Project Management</span>
+              </a>
+              <a
+                href="https://www.coursera.org/account/accomplishments/specialization/certificate/GZUCL64L8PPH"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cert"
+              >
+                <img src="assets/gis.png" alt="Google IT Support" class="cert__icon" loading="lazy" />
+                <span class="cert__name">Google IT Support</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="about"
+        class="section"
+        data-section="about"
+        data-accent="sky"
+        aria-labelledby="about-title"
+      >
+        <header class="section-head" data-reveal>
+          <span class="section-head__index mono">06</span>
+          <div>
+            <h2 id="about-title" class="section-head__title">About Me</h2>
+            <p class="section-head__sub">Get to know me.</p>
+          </div>
+        </header>
+
+        <div class="about">
+          <div class="about__body">
+            <p data-reveal>
+              I have always preferred a hands on approach to engineering. My
+              background started on the production floor in quality and
+              manufacturing roles, where I learned how much the boots on the
+              ground details actually matter. That foundation gives me a
+              practical perspective on how things are built and how to address
+              the friction that often exists between design and reality.
+            </p>
+            <p data-reveal>
+              Right now I am focused on building technical solutions that I can
+              own end to end. I enjoy taking complex, technical environments and
+              building the data solutions required to make them more efficient.
+              I take a lot of pride in being proficient across the stack and
+              ensuring that the systems I build are practical enough to actually
+              work in a real world setting.
+            </p>
+            <p data-reveal>
+              In my off hours I am usually still building or optimizing
+              something. That usually looks like pushing the limits of 3D
+              printing with engineering grade materials, working on mechanical
+              DIY projects, or refining strategy in a competitive game. I am a
+              big believer that being a well rounded engineer is about staying
+              curious and never really stopping being a builder.
+            </p>
+          </div>
+
+          <aside class="about__panel" data-reveal aria-label="At a glance">
+            <h3 class="panel__title mono">// AT A GLANCE</h3>
+            <dl class="panel__list">
+              <div class="panel__row">
+                <dt class="mono">Current Roles</dt>
+                <dd>Data Engineer, Amazon</dd>
+              </div>
+              <div class="panel__row">
+                <dd>Independent Software Engineer, Intsu</dd>
+              </div>
+              <div class="panel__row">
+                <dt class="mono">Based in</dt>
+                <dd>Redmond, WA</dd>
+              </div>
+              <div class="panel__row">
+                <dt class="mono">Expertise</dt>
+                <dd>Data Platforms</dd>
+                <dd>Backend and Systems</dd>
+                <dd>Cloud Architecture</dd>
+                <dd>Statistics</dd>
+                <dd>Manufacturing</dd>
+              </div>
+              <div class="panel__row">
+                <dt class="mono">Other fun stuff</dt>
+                <dd>Cars and Driving</dd>
+                <dd>3D Printing and Modeling</dd>
+                <dd>Metal Working and Anodization</dd>
+                <dd>Content Creation</dd>
+                <dd>Fashion, Clothing, and Sewing</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+
+        <div class="about-gallery" data-reveal>
+          <h3 class="about-gallery__title mono">// OFF THE CLOCK</h3>
+          <p class="about-gallery__lead">
+            I also enjoy working on cars and other mechanical projects.
+          </p>
+          <div class="gallery">
+            <div class="slider slider--wide" data-slider aria-roledescription="carousel" aria-label="Photos of cars">
+              <div class="slides">
+                <img src="assets/cayman.png" class="slide" alt="Porsche Cayman" loading="lazy" decoding="async" />
+                <img src="assets/porsches.png" class="slide" alt="A pair of Porsches" loading="lazy" decoding="async" />
+                <img src="assets/supra.png" class="slide" alt="Toyota Supra" loading="lazy" decoding="async" />
+                <img src="assets/brz.jpeg" class="slide" alt="Subaru BRZ" loading="lazy" decoding="async" />
+              </div>
+              <button type="button" class="slidePrev" aria-label="Previous photo">&#10094;</button>
+              <button type="button" class="slideNext" aria-label="Next photo">&#10095;</button>
+              <div class="slider__dots" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="resume"
+        class="section"
+        data-section="resume"
+        data-accent="blue"
+        aria-labelledby="resume-title"
+      >
+        <header class="section-head" data-reveal>
+          <span class="section-head__index mono">07</span>
+          <div>
+            <h2 id="resume-title" class="section-head__title">Resume</h2>
+            <p class="section-head__sub">The full document. Read it here or take it with you.</p>
+          </div>
+        </header>
+
+        <div class="resume" data-reveal>
+          <div class="resume__bar">
+            <span class="mono">Zi Feng // Resume 2026</span>
+            <div class="resume__actions">
+              <a
+                href="assets/Zi Feng Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--sm btn--ghost"
+                >Open in new tab</a
+              >
+              <a
+                href="assets/Zi Feng Resume.pdf"
+                download
+                class="btn btn--sm btn--primary"
+                >Download PDF</a
+              >
+            </div>
+          </div>
+          <div class="resume__frame">
+            <iframe
+              class="resume__viewer"
+              src="assets/Zi Feng Resume.pdf#toolbar=0&view=FitH"
+              title="Zi Feng resume PDF"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="contact"
+        class="section"
+        data-section="contact"
+        data-accent="emerald"
+        aria-labelledby="contact-title"
+      >
+        <header class="section-head" data-reveal>
+          <span class="section-head__index mono">08</span>
+          <div>
+            <h2 id="contact-title" class="section-head__title">Contact</h2>
+            <p class="section-head__sub">Say hello. I will get back to you.</p>
+          </div>
+        </header>
+
+        <div class="contact">
+          <div class="contact__info" data-reveal>
+            <p class="contact__lede">
+              Whether it is a role, a collaboration, or a question about
+              something I have built, I would be glad to hear from you.
+            </p>
+            <ul class="contact__list">
+              <li>
+                <span class="mono contact__k">Email</span>
+                <a href="mailto:zif2022@gmail.com">zif2022@gmail.com</a>
+              </li>
+              <li>
+                <span class="mono contact__k">Based</span>
+                <span>Redmond, WA</span>
+              </li>
+              <li>
+                <span class="mono contact__k">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/zifeng1" target="_blank" rel="noopener noreferrer">in/zifeng1</a>
+              </li>
+              <li>
+                <span class="mono contact__k">GitHub</span>
+                <a href="https://www.github.com/Zif0" target="_blank" rel="noopener noreferrer">github.com/Zif0</a>
+              </li>
+            </ul>
+          </div>
+
+          <form
+            id="contactForm"
+            class="contact__form"
+            action="https://formsubmit.co/92de23b0ce1f60931cfc813010f0bfd6"
+            method="POST"
+            data-reveal
+          >
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Send message</button>
+          </form>
+        </div>
+
+        <footer class="footer">
+          <p>&copy; 2026 Zi Feng. All rights reserved.</p>
+          <div class="footer__socials">
+            <a href="https://www.linkedin.com/in/zifeng1" target="_blank" rel="noopener noreferrer" class="pilllink">LinkedIn</a>
+            <a href="https://www.github.com/Zif0" target="_blank" rel="noopener noreferrer" class="pilllink">GitHub</a>
+            <a href="#home" class="pilllink">Back to top</a>
+          </div>
+        </footer>
       </section>
     </main>
 
-    <div id="scrollHint">
-      <div class="arrowBounce" aria-hidden="true">↓</div>
-      <p>Scroll for more</p>
-    </div>
-
-    <footer>
-      <p>© 2026 Zi Feng. All rights reserved.</p>
-      <div class="socialLinks">
-        <a href="https://www.linkedin.com/in/zifeng1" target="_blank" rel="noopener noreferrer"
-          ><img
-            src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png"
-            alt="LinkedIn"
-            class="socials"
-            id="linkedin-footer"
-        /></a>
-        <a href="https://www.github.com/Zif0" target="_blank" rel="noopener noreferrer"
-          ><img
-            src="Pictures/github.png"
-            alt="GitHub"
-            class="socials"
-            id="github-footer"
-        /></a>
-      </div>
-    </footer>
-
-    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
